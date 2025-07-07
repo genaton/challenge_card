@@ -29,7 +29,7 @@ Este projeto foi desenvolvido como parte do **Tech Challenge - Fase 2** da Pós-
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **Java 17**
+- **Java 24**
 - **Spring Boot 3+**
 - **Spring Data JPA**
 - **Hibernate Validator**
