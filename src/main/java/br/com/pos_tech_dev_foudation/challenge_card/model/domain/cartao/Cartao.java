@@ -1,6 +1,6 @@
-package br.com.pos_tech_dev_foudation.challenge_card.controller.cartao;
+package br.com.pos_tech_dev_foudation.challenge_card.model.domain.cartao;
 
-import br.com.pos_tech_dev_foudation.challenge_card.controller.cliente.DadosAtualizacaoCliente;
+import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cliente.DadosAtualizacaoCliente;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

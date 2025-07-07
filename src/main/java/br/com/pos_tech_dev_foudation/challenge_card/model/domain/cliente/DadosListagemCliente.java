@@ -1,4 +1,4 @@
-package br.com.pos_tech_dev_foudation.challenge_card.controller.cliente;
+package br.com.pos_tech_dev_foudation.challenge_card.model.domain.cliente;
 
 public record DadosListagemCliente(
     String nome, String email, Boolean ativo

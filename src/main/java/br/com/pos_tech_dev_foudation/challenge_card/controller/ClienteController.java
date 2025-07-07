@@ -16,12 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import br.com.pos_tech_dev_foudation.challenge_card.controller.cliente.Cliente;
-import br.com.pos_tech_dev_foudation.challenge_card.controller.cliente.ClienteRepository;
-import br.com.pos_tech_dev_foudation.challenge_card.controller.cliente.DadosAtualizacaoCliente;
-import br.com.pos_tech_dev_foudation.challenge_card.controller.cliente.DadosCadastroCliente;
-import br.com.pos_tech_dev_foudation.challenge_card.controller.cliente.DadosDetalhamentoCliente;
-import br.com.pos_tech_dev_foudation.challenge_card.controller.cliente.DadosListagemCliente;
+import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cliente.Cliente;
+import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cliente.ClienteRepository;
+import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cliente.DadosAtualizacaoCliente;
+import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cliente.DadosCadastroCliente;
+import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cliente.DadosDetalhamentoCliente;
+import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cliente.DadosListagemCliente;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import jakarta.validation.Valid;
@@ -105,7 +105,7 @@ public class ClienteController {
     }
      @Operation(summary = "detalha dados cliente")
     @ApiResponse(responseCode = "200", description = "dados do cliente detalhados")
-    @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
+    @ApiResponse(responseCode = "404", description = "Dados inválidos ou ausentes")
     @GetMapping("/{id}")
     @Transactional
     public ResponseEntity detahar(@PathVariable Long id) {

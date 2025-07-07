@@ -16,12 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import br.com.pos_tech_dev_foudation.challenge_card.controller.cartao.Cartao;
-import br.com.pos_tech_dev_foudation.challenge_card.controller.cartao.CartaoRepository;
-import br.com.pos_tech_dev_foudation.challenge_card.controller.cartao.DadosAtualizacaoCartao;
-import br.com.pos_tech_dev_foudation.challenge_card.controller.cartao.DadosCartao;
-import br.com.pos_tech_dev_foudation.challenge_card.controller.cartao.DadosDetalhamentoCartao;
-import br.com.pos_tech_dev_foudation.challenge_card.controller.cartao.DadosListagemCartao;
+import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cartao.Cartao;
+import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cartao.CartaoRepository;
+import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cartao.DadosAtualizacaoCartao;
+import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cartao.DadosCartao;
+import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cartao.DadosDetalhamentoCartao;
+import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cartao.DadosListagemCartao;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import jakarta.validation.Valid;

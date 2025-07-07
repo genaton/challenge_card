@@ -1,4 +1,4 @@
-package br.com.pos_tech_dev_foudation.challenge_card.controller.cliente;
+package br.com.pos_tech_dev_foudation.challenge_card.model.domain.cliente;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

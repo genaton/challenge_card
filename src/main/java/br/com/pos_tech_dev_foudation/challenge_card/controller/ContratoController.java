@@ -16,12 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import br.com.pos_tech_dev_foudation.challenge_card.controller.contrato.Contrato;
-import br.com.pos_tech_dev_foudation.challenge_card.controller.contrato.ContratoRepository;
-import br.com.pos_tech_dev_foudation.challenge_card.controller.contrato.DadosAtualizacaoContrato;
-import br.com.pos_tech_dev_foudation.challenge_card.controller.contrato.DadosContrato;
-import br.com.pos_tech_dev_foudation.challenge_card.controller.contrato.DadosDetalhamentoContrato;
-import br.com.pos_tech_dev_foudation.challenge_card.controller.contrato.DadosListagemContrato;
+import br.com.pos_tech_dev_foudation.challenge_card.model.domain.contrato.Contrato;
+import br.com.pos_tech_dev_foudation.challenge_card.model.domain.contrato.ContratoRepository;
+import br.com.pos_tech_dev_foudation.challenge_card.model.domain.contrato.DadosAtualizacaoContrato;
+import br.com.pos_tech_dev_foudation.challenge_card.model.domain.contrato.DadosContrato;
+import br.com.pos_tech_dev_foudation.challenge_card.model.domain.contrato.DadosDetalhamentoContrato;
+import br.com.pos_tech_dev_foudation.challenge_card.model.domain.contrato.DadosListagemContrato;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import jakarta.validation.Valid;
