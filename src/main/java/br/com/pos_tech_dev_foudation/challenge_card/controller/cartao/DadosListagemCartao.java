@@ -1,0 +1,16 @@
+package br.com.pos_tech_dev_foudation.challenge_card.controller.cartao;
+
+import br.com.pos_tech_dev_foudation.challenge_card.controller.cliente.Cliente;
+
+public record DadosListagemCartao(
+     String numeroCartao,
+     Tipo tipo,
+     Boolean ativo
+
+) {
+    public DadosListagemCartao (Cartao cartao){
+        this(cartao.getNumeroCartao(), cartao.getTipo(), cartao.getAtivo());
+
+    }
+
+}

@@ -15,7 +15,7 @@ public class ChallengeCardApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		System.out.println("o xessus");
+		System.out.println("Bem vindo ao Challange API");
 		
 		
 		
