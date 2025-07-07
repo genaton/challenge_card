@@ -1,18 +1,5 @@
 package br.com.pos_tech_dev_foudation.challenge_card.controller;
 
-import br.com.pos_tech_dev_foudation.challenge_card.controller.cartao.Cartao;
-import br.com.pos_tech_dev_foudation.challenge_card.controller.cartao.CartaoRepository;
-import br.com.pos_tech_dev_foudation.challenge_card.controller.cartao.DadosAtualizacaoCartao;
-import br.com.pos_tech_dev_foudation.challenge_card.controller.cartao.DadosCartao;
-import br.com.pos_tech_dev_foudation.challenge_card.controller.cartao.DadosListagemCartao;
-
-import br.com.pos_tech_dev_foudation.challenge_card.controller.cartao.DadosListagemCartao;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import jakarta.validation.Valid;
-
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,6 +11,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import br.com.pos_tech_dev_foudation.challenge_card.controller.cartao.Cartao;
+import br.com.pos_tech_dev_foudation.challenge_card.controller.cartao.CartaoRepository;
+import br.com.pos_tech_dev_foudation.challenge_card.controller.cartao.DadosAtualizacaoCartao;
+import br.com.pos_tech_dev_foudation.challenge_card.controller.cartao.DadosCartao;
+import br.com.pos_tech_dev_foudation.challenge_card.controller.cartao.DadosListagemCartao;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("cartoes")

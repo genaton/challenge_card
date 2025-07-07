@@ -14,12 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.pos_tech_dev_foudation.challenge_card.controller.cartao.DadosAtualizacaoCartao;
-import br.com.pos_tech_dev_foudation.challenge_card.controller.cartao.DadosListagemCartao;
-import br.com.pos_tech_dev_foudation.challenge_card.controller.cliente.Cliente;
-import br.com.pos_tech_dev_foudation.challenge_card.controller.cliente.DadosAtualizacaoCliente;
-import br.com.pos_tech_dev_foudation.challenge_card.controller.cliente.DadosCadastroCliente;
-import br.com.pos_tech_dev_foudation.challenge_card.controller.cliente.DadosListagemCliente;
 import br.com.pos_tech_dev_foudation.challenge_card.controller.contrato.Contrato;
 import br.com.pos_tech_dev_foudation.challenge_card.controller.contrato.ContratoRepository;
 import br.com.pos_tech_dev_foudation.challenge_card.controller.contrato.DadosAtualizacaoContrato;
