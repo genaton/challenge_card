@@ -16,6 +16,7 @@ public class ChallengeCardApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("Bem vindo ao Challange API");
+		System.out.println("Versão do Java: " + System.getProperty("java.version"));
 		
 		
 		
