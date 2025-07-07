@@ -103,6 +103,20 @@ public class ClienteController {
         
 
     }
+     @Operation(summary = "detalha dados cliente")
+    @ApiResponse(responseCode = "200", description = "dados do cliente detalhados")
+    @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
+    @GetMapping("/{id}")
+    @Transactional
+    public ResponseEntity detahar(@PathVariable Long id) {
+      
+        var cliente = repository.getReferenceById(id);
+        return ResponseEntity.ok(new DadosDetalhamentoCliente(cliente));
+        
+
+    }
+
+    
 
     @Operation(summary = "exclui dados cliente")
     @ApiResponse(responseCode = "204", description = "dados do cliente excluídos")

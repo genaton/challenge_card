@@ -50,9 +50,9 @@ public class ContratoController {
         // System.out.println(dados);
 
     }
-        
-    
-    // traz todos dados do cliente com paginacao de 10/pag ordenando os registro por nome ascendente. 
+
+    // traz todos dados do cliente com paginacao de 10/pag ordenando os registro por
+    // nome ascendente.
     @Operation(summary = "consulta contrato")
     @ApiResponse(responseCode = "200", description = "contrato encontrado")
     @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
@@ -69,7 +69,7 @@ public class ContratoController {
     @ApiResponse(responseCode = "200", description = "contrato encontrado")
     @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
     @GetMapping("dados_parciais")
-    public ResponseEntity <Page<DadosListagemContrato>> listarParcial(Pageable paginacao) {
+    public ResponseEntity<Page<DadosListagemContrato>> listarParcial(Pageable paginacao) {
         var page = repository.findAll(paginacao).map(DadosListagemContrato::new);
         return ResponseEntity.ok(page);
 
@@ -79,13 +79,14 @@ public class ContratoController {
     @ApiResponse(responseCode = "200", description = "contratos ativos encontrados")
     @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
     @GetMapping("ativos")
-    public ResponseEntity <Page<DadosListagemContrato>> listarAtivo(@PageableDefault(size = 10, sort = "nome") Pageable paginacao) {
+    public ResponseEntity<Page<DadosListagemContrato>> listarAtivo(
+            @PageableDefault(size = 10, sort = "nome") Pageable paginacao) {
         var page = repository.findAllByAtivoTrue(paginacao).map(DadosListagemContrato::new);
         return ResponseEntity.ok(page);
 
     }
 
-      @Operation(summary = "atualiza dados do contrato")
+    @Operation(summary = "atualiza dados do contrato")
     @ApiResponse(responseCode = "200", description = "dados do contrato atualizado")
     @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
     @PutMapping
@@ -94,10 +95,20 @@ public class ContratoController {
         var contrato = repository.getReferenceById(dados.id());
         contrato.atualizarInformacoes(dados);
         return ResponseEntity.ok(new DadosDetalhamentoContrato(contrato));
-        
 
     }
 
+    @Operation(summary = "detalha dados contrato")
+    @ApiResponse(responseCode = "200", description = "dados do contrato detalhados")
+    @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
+    @GetMapping("/{id}")
+    @Transactional
+    public ResponseEntity detahar(@PathVariable Long id) {
+        
+        var contrato = repository.getReferenceById(id);
+        return ResponseEntity.ok(new DadosDetalhamentoContrato(contrato));
+
+    }
 
     @Operation(summary = "exclui dados do contrato")
     @ApiResponse(responseCode = "204", description = "dados do contrato excluídos")
@@ -105,15 +116,11 @@ public class ContratoController {
     @DeleteMapping("/{id}")
     @Transactional
     public ResponseEntity excluir(@PathVariable Long id) {
-        // repository.deleteById(id); //exclusão TOTAL DO REGISTRO 
+        // repository.deleteById(id); //exclusão TOTAL DO REGISTRO
         var contrato = repository.getReferenceById(id);
         contrato.excluir();
         return ResponseEntity.noContent().build();
-        
 
     }
-    
-
-    
 
 }
