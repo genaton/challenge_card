@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.pos_tech_dev_foudation.challenge_card.controller.cartao.DadosAtualizacaoCartao;
+import br.com.pos_tech_dev_foudation.challenge_card.controller.cartao.DadosListagemCartao;
 import br.com.pos_tech_dev_foudation.challenge_card.controller.cliente.Cliente;
 import br.com.pos_tech_dev_foudation.challenge_card.controller.cliente.DadosAtualizacaoCliente;
 import br.com.pos_tech_dev_foudation.challenge_card.controller.cliente.DadosCadastroCliente;
@@ -68,6 +69,15 @@ public class ContratoController {
     @GetMapping("dados_parciais")
     public Page<DadosListagemContrato> listarParcial(Pageable paginacao) {
         return repository.findAll(paginacao).map(DadosListagemContrato::new);
+
+    }
+
+    @Operation(summary = "consulta contratos ativos")
+    @ApiResponse(responseCode = "201", description = "contratos ativos encontrados")
+    @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
+    @GetMapping("ativos")
+    public Page<DadosListagemContrato> listarAtivo(@PageableDefault(size = 10, sort = "nome") Pageable paginacao) {
+        return repository.findAllByAtivoTrue(paginacao).map(DadosListagemContrato::new);
 
     }
 

@@ -51,12 +51,12 @@ public class Cartao {
     private Boolean ativo;
 
     public Cartao(DadosCartao dados) {
+        this.ativo = true;
         this.numeroCartao = dados.numeroCartao();
         this.anuidade = dados.anuidade();
         this.tipo = dados.tipo();
         this.bandeira = dados.bandeira();
         this.nome = dados.nome();
-        this.ativo = true;
 
     }
      public void atualizarInformacoes(DadosAtualizacaoCartao dados) {

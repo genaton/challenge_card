@@ -5,8 +5,8 @@ import br.com.pos_tech_dev_foudation.challenge_card.controller.cartao.CartaoRepo
 import br.com.pos_tech_dev_foudation.challenge_card.controller.cartao.DadosAtualizacaoCartao;
 import br.com.pos_tech_dev_foudation.challenge_card.controller.cartao.DadosCartao;
 import br.com.pos_tech_dev_foudation.challenge_card.controller.cartao.DadosListagemCartao;
-import br.com.pos_tech_dev_foudation.challenge_card.controller.cliente.Cliente;
-import br.com.pos_tech_dev_foudation.challenge_card.controller.cliente.DadosListagemCliente;
+
+import br.com.pos_tech_dev_foudation.challenge_card.controller.cartao.DadosListagemCartao;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import jakarta.validation.Valid;
@@ -45,7 +45,7 @@ public class CartaoController {
 
     }
 
-     // traz todos dados do cliente com paginacao de 10/pag ordenando os registro por nome ascendente. 
+     
     @Operation(summary = "consulta cartao")
     @ApiResponse(responseCode = "201", description = "cartao encontrado")
     @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
@@ -54,6 +54,17 @@ public class CartaoController {
         return repository.findAll(paginacao);
 
     }
+
+    @Operation(summary = "consulta cartoes ativos")
+    @ApiResponse(responseCode = "201", description = "cartoes ativos encontrados")
+    @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
+    @GetMapping("ativos")
+    public Page<DadosListagemCartao> listarAtivo(@PageableDefault(size = 10, sort = "nome") Pageable paginacao) {
+        return repository.findAllByAtivoTrue(paginacao).map(DadosListagemCartao::new);
+
+    }
+
+    
 
     // personaliza os dados a serem exibidos por meio do record
     // DadosListagemCliente.
