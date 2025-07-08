@@ -18,31 +18,31 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 
-@Schema(description = "Representa um cliente cadastrado no sistema")
+// @Schema(description = "Representa um cliente cadastrado no sistema")
 
 @Table(name = "cliente")
 @Entity(name = "Cliente")
 
 public class Cliente {
 
-    @Schema(description = "Identificador único do cliente", example = "1")
+    // @Schema(description = "Identificador único do cliente", example = "1")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Schema(description = "Nome completo do cliente", example = "Maria da Silva")
+    // @Schema(description = "Nome completo do cliente", example = "Maria da Silva")
     private String nome;
 
-    @Schema(description = "e-mail do cliente", example = "maria.silva@email.com")
+    // @Schema(description = "e-mail do cliente", example = "maria.silva@email.com")
     private String email;
 
-    @Schema(description = "cpf", example = "12345678901")
+    // @Schema(description = "cpf", example = "12345678901")
     private String cpf;
 
-    @Schema(description = "Data de nascimento no formato AAAA-MM-DD", example = "2000-01-01")
+    // @Schema(description = "Data de nascimento no formato AAAA-MM-DD", example = "2000-01-01")
     private LocalDate dataNascimento;
 
-    @Schema(description = "Indica se o cliente está ou não ativo", example = "0 - inativo ou 1 - ativo")
+    // @Schema(description = "Indica se o cliente está ou não ativo", example = "0 - inativo ou 1 - ativo")
     private Boolean ativo;
 
     public Cliente(DadosCadastroCliente dados) {

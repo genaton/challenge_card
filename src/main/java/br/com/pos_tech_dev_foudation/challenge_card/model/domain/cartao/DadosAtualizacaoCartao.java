@@ -11,19 +11,33 @@ import jakarta.validation.constraints.Pattern;
 
 public record DadosAtualizacaoCartao(
 
-        @NotNull @Schema(description = "id unico do cartao", example = "1") Long id,
+        @NotNull 
+        // @Schema(description = "id unico do cartao", example = "1") 
+        Long id,
 
-        @NotBlank @Pattern(regexp = "\\d{19}") @Schema(description = "número do cartão com 19 dígitos", example = "0123456789012345678") String numeroCartao,
+        @NotBlank 
+        @Pattern(regexp = "\\d{19}") 
+        // @Schema(description = "número do cartão com 19 dígitos", example = "0123456789012345678") 
+        String numeroCartao,
+        @NotNull 
+        // @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd") 
+        LocalDate dataVencimento,
 
-        @NotNull @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd") LocalDate dataVencimento,
+        @NotNull 
+        // @Schema(description = "valor da anuidade", example = "100.11") 
+        Double anuidade,
 
-        @NotNull @Schema(description = "valor da anuidade", example = "100.11") Double anuidade,
+        @NotNull 
+        // @Schema(description = "tipo de cartão", example = "CREDITO ou DEBITO") 
+        Tipo tipo,
 
-        @NotNull @Schema(description = "tipo de cartão", example = "CREDITO ou DEBITO") Tipo tipo,
+        @NotNull 
+        // @Schema(description = "bandeira do cartão", example = "VISA, MASTERCAR ou ELO") 
+        Bandeira bandeira,
 
-        @NotNull @Schema(description = "bandeira do cartão", example = "VISA, MASTERCAR ou ELO") Bandeira bandeira,
-
-        @NotNull @Schema(description = "nome do cartão", example = "BLACK, PLATINUM ou GOLD") Nome nome
+        @NotNull 
+        // @Schema(description = "nome do cartão", example = "BLACK, PLATINUM ou GOLD") 
+        Nome nome
 
 ) {
 

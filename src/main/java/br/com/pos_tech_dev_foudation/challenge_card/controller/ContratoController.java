@@ -33,9 +33,9 @@ public class ContratoController {
     @Autowired
     private ContratoRepository repository;
 
-    @Operation(summary = "cadastra novo contrato")
-    @ApiResponse(responseCode = "201", description = "contrato cadastrado com sucesso")
-    @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
+    // @Operation(summary = "cadastra novo contrato")
+    // @ApiResponse(responseCode = "201", description = "contrato cadastrado com sucesso")
+    // @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
     // @Parameter(name = "id", description = "ID do cliente a ser consultado",
     // required = true)
     @PostMapping
@@ -53,9 +53,9 @@ public class ContratoController {
 
     // traz todos dados do cliente com paginacao de 10/pag ordenando os registro por
     // nome ascendente.
-    @Operation(summary = "consulta contrato")
-    @ApiResponse(responseCode = "200", description = "contrato encontrado")
-    @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
+    // @Operation(summary = "consulta contrato")
+    // @ApiResponse(responseCode = "200", description = "contrato encontrado")
+    // @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
     @GetMapping
     public ResponseEntity<Page<Contrato>> listar(@PageableDefault(size = 10, sort = "status") Pageable paginacao) {
         var page = repository.findAll(paginacao);
@@ -65,9 +65,9 @@ public class ContratoController {
 
     // personaliza os dados a serem exibidos por meio do record
     // DadosListagemCliente.
-    @Operation(summary = "consulta dados parciais contrato")
-    @ApiResponse(responseCode = "200", description = "contrato encontrado")
-    @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
+    // @Operation(summary = "consulta dados parciais contrato")
+    // @ApiResponse(responseCode = "200", description = "contrato encontrado")
+    // @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
     @GetMapping("dados_parciais")
     public ResponseEntity<Page<DadosListagemContrato>> listarParcial(Pageable paginacao) {
         var page = repository.findAll(paginacao).map(DadosListagemContrato::new);
@@ -75,9 +75,9 @@ public class ContratoController {
 
     }
 
-    @Operation(summary = "consulta contratos ativos")
-    @ApiResponse(responseCode = "200", description = "contratos ativos encontrados")
-    @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
+    // @Operation(summary = "consulta contratos ativos")
+    // @ApiResponse(responseCode = "200", description = "contratos ativos encontrados")
+    // @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
     @GetMapping("ativos")
     public ResponseEntity<Page<DadosListagemContrato>> listarAtivo(
             @PageableDefault(size = 10, sort = "nome") Pageable paginacao) {
@@ -86,9 +86,9 @@ public class ContratoController {
 
     }
 
-    @Operation(summary = "atualiza dados do contrato")
-    @ApiResponse(responseCode = "200", description = "dados do contrato atualizado")
-    @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
+    // @Operation(summary = "atualiza dados do contrato")
+    // @ApiResponse(responseCode = "200", description = "dados do contrato atualizado")
+    // @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
     @PutMapping
     @Transactional
     public ResponseEntity atualizar(@RequestBody @Valid DadosAtualizacaoContrato dados) {
@@ -98,9 +98,9 @@ public class ContratoController {
 
     }
 
-    @Operation(summary = "detalha dados contrato")
-    @ApiResponse(responseCode = "200", description = "dados do contrato detalhados")
-    @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
+    // @Operation(summary = "detalha dados contrato")
+    // @ApiResponse(responseCode = "200", description = "dados do contrato detalhados")
+    // @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
     @GetMapping("/{id}")
     @Transactional
     public ResponseEntity detahar(@PathVariable Long id) {
@@ -110,9 +110,9 @@ public class ContratoController {
 
     }
 
-    @Operation(summary = "exclui dados do contrato")
-    @ApiResponse(responseCode = "204", description = "dados do contrato excluídos")
-    @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
+    // @Operation(summary = "exclui dados do contrato")
+    // @ApiResponse(responseCode = "204", description = "dados do contrato excluídos")
+    // @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
     @DeleteMapping("/{id}")
     @Transactional
     public ResponseEntity excluir(@PathVariable Long id) {

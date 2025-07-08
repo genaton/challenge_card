@@ -18,25 +18,25 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 
-@Schema(description = "Representa um contrato cadastrado no sistema")
+// @Schema(description = "Representa um contrato cadastrado no sistema")
 
 @Table(name = "contrato")
 @Entity(name = "Contrato")
 
 public class Contrato {
 
-    @Schema(description = "Identificador único do contrato", example = "1")
+    // @Schema(description = "Identificador único do contrato", example = "1")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Schema(description = "Estado do contrato", example = "ATIVO, CANCELADO")
+    // @Schema(description = "Estado do contrato", example = "ATIVO, CANCELADO")
     private Status status;
 
-    @Schema(description = "Data de início do contrato no formato AAAA-MM-DD", example = "2000-01-01")
+    // @Schema(description = "Data de início do contrato no formato AAAA-MM-DD", example = "2000-01-01")
     private LocalDate data;
 
-     @Schema(description = "Indica se o contrato está ou não ativo", example = "0 - inativo ou 1 - ativo")
+    //  @Schema(description = "Indica se o contrato está ou não ativo", example = "0 - inativo ou 1 - ativo")
     private Boolean ativo;
 
     public Contrato(DadosContrato dados) {

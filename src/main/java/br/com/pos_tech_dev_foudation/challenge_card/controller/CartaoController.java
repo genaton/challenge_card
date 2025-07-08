@@ -32,9 +32,9 @@ public class CartaoController {
     @Autowired
     private CartaoRepository repository;
 
-    @Operation(summary = "inclusão de novo cartao")
-    @ApiResponse(responseCode = "201", description = "novo cartao incluído")
-    @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
+    // @Operation(summary = "inclusão de novo cartao")
+    // @ApiResponse(responseCode = "201", description = "novo cartao incluído")
+    // @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
 
     @PostMapping
     @Transactional
@@ -50,9 +50,9 @@ public class CartaoController {
 
     }
 
-    @Operation(summary = "consulta cartao")
-    @ApiResponse(responseCode = "200", description = "cartao encontrado")
-    @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
+    // @Operation(summary = "consulta cartao")
+    // @ApiResponse(responseCode = "200", description = "cartao encontrado")
+    // @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
     @GetMapping
     public ResponseEntity<Page<Cartao>> listar(@PageableDefault(size = 10, sort = "nome") Pageable paginacao) {
         var page = repository.findAll(paginacao);
@@ -60,9 +60,9 @@ public class CartaoController {
 
     }
 
-    @Operation(summary = "consulta cartoes ativos")
-    @ApiResponse(responseCode = "200", description = "cartoes ativos encontrados")
-    @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
+    // @Operation(summary = "consulta cartoes ativos")
+    // @ApiResponse(responseCode = "200", description = "cartoes ativos encontrados")
+    // @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
     @GetMapping("ativos")
     public ResponseEntity<Page<DadosListagemCartao>> listarAtivo(
             @PageableDefault(size = 10, sort = "nome") Pageable paginacao) {
@@ -84,9 +84,9 @@ public class CartaoController {
 
     }
 
-    @Operation(summary = "atualiza dados cartao")
-    @ApiResponse(responseCode = "201", description = "dados do cartao atualizado")
-    @ApiResponse(responseCode = "200", description = "Dados inválidos ou ausentes")
+    // @Operation(summary = "atualiza dados cartao")
+    // @ApiResponse(responseCode = "201", description = "dados do cartao atualizado")
+    // @ApiResponse(responseCode = "200", description = "Dados inválidos ou ausentes")
     @PutMapping
     @Transactional
     public ResponseEntity atualizar(@RequestBody @Valid DadosAtualizacaoCartao dados) {
@@ -96,9 +96,9 @@ public class CartaoController {
 
     }
 
-    @Operation(summary = "detalha dados cartao")
-    @ApiResponse(responseCode = "200", description = "dados do cartao detalhados")
-    @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
+    // @Operation(summary = "detalha dados cartao")
+    // @ApiResponse(responseCode = "200", description = "dados do cartao detalhados")
+    // @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
     @GetMapping("/{id}")
     @Transactional
     public ResponseEntity detahar(@PathVariable Long id) {
@@ -109,9 +109,9 @@ public class CartaoController {
     }
 
     // exclusão TOTAL DO REGISTRO
-    @Operation(summary = "exclui dados do cartao")
-    @ApiResponse(responseCode = "204", description = "dados do cartao excluídos")
-    @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
+    // @Operation(summary = "exclui dados do cartao")
+    // @ApiResponse(responseCode = "204", description = "dados do cartao excluídos")
+    // @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
     @DeleteMapping("/{id}")
     @Transactional
     public ResponseEntity excluir(@PathVariable Long id) {
