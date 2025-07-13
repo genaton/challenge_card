@@ -55,6 +55,14 @@ Também foram utilizados Design Patterns como:
 
 ---
 
+🧠 Regras de negócio incluídas
+- Ao criar um cliente, um contrato e um cartão são criados vinculados
+- Ao desativar um cliente, o contrato e o cartão são também desativados (regra em cascata via controller ou service)
+- Dados que pertencem ao fluxo de entrada (tipoCartao, bandeiraCartao, etc.) estão encapsulados no DTO DadosCadastroCliente para fins de cadastro
+
+Se quiser, posso montar uma versão visual do diagrama usando PlantUML ou mermaid, que você pode renderizar em IDEs como IntelliJ ou VS Code. Quer seguir por esse caminho? 😄
+
+
 ## 📦 Como executar
 
 1. Clone o repositório:
