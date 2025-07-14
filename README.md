@@ -84,7 +84,7 @@ O modelo ER contém:
 - Tabela cartoes
 - Tabela contratacoes
 - Relacionamento 1:1 entre clientes e contratacoes
-- Relacionamento 1:1 entre cartoes e contratacoes
+- Relacionamento N:1 entre cartoes e contratacoes
 
 O modelo pode ser acessado em (vide readme.md do repositório):
 https://github.com/genaton/pos_thec_fiap_challenge_db_model
