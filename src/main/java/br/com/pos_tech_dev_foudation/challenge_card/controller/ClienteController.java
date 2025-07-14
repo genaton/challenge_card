@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.Optional;
 import java.util.Random;
 
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -113,7 +114,9 @@ public class ClienteController {
     // @ApiResponse(responseCode = "400", description = "Dados inválidos ou
     // ausentes")
     @GetMapping
-    public ResponseEntity<Page<Cliente>> listar(@PageableDefault(size = 10, sort = "nome") Pageable paginacao) {
+    public ResponseEntity<Page<Cliente>> listar(
+    @ParameterObject
+    @PageableDefault(size = 10, sort = "nome") Pageable paginacao) {
         var page = clienteRepository.findAll(paginacao);
         return ResponseEntity.ok(page);
 

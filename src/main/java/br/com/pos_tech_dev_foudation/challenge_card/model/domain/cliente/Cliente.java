@@ -3,6 +3,7 @@ package br.com.pos_tech_dev_foudation.challenge_card.model.domain.cliente;
 import java.time.LocalDate;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -31,6 +32,7 @@ public class    Cliente {
     private Long id;
 
     // @Schema(description = "Nome completo do cliente", example = "Maria da Silva")
+    @Column(name = "nome")
     private String nome;
 
     // @Schema(description = "e-mail do cliente", example = "maria.silva@email.com")
