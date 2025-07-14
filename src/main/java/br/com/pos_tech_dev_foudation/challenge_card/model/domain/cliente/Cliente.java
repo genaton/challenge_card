@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "cliente")
 @Entity(name = "Cliente")
 
-public class Cliente {
+public class    Cliente {
 
     // @Schema(description = "Identificador único do cliente", example = "1")
     @Id
@@ -51,6 +51,7 @@ public class Cliente {
         this.email = dados.email();
         this.cpf = dados.cpf();
         this.dataNascimento = dados.dataNascimento();
+        this.ativo = dados.ativo();
 
     }
 
@@ -69,9 +70,9 @@ public class Cliente {
         if (dados.dataNascimento() != null) {
             this.dataNascimento = dados.dataNascimento();
         }
-        // if (dados.ativo() != null) {
-        //     this.ativo = dados.ativo();
-        // }
+        if (dados.ativo() != null) {
+            this.ativo = dados.ativo();
+        }
 
     }
 

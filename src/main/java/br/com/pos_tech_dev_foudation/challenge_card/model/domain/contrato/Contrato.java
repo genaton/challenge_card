@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Stream;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cartao.Cartao;
 import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cliente.Cliente;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -40,10 +42,12 @@ public class Contrato {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cartao_id")
     private Cartao cartao;

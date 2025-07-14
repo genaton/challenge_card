@@ -7,6 +7,7 @@ import org.hibernate.validator.constraints.br.CPF;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cartao.*;
+import br.com.pos_tech_dev_foudation.challenge_card.model.domain.contrato.ativo;
 // import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cartao.Nome;
 // import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cartao.Tipo;
 // import io.swagger.v3.oas.annotations.media.Schema;
@@ -37,6 +38,9 @@ public record DadosCadastroCliente(
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     // Data de nascimento
     LocalDate dataNascimento,
+
+    
+    Boolean ativo,
 
     @NotNull
     // Tipo do cartão (CREDITO, DEBITO)

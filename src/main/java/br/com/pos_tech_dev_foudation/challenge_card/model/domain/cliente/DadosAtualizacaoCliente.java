@@ -31,6 +31,8 @@ public record DadosAtualizacaoCliente(
         // @Schema(description = "Número de CPF (somente dígitos)", example = "12345678901") 
         String cpf,
 
+        Boolean ativo,
+
         // @Schema(description = "cliente ativo ou não", example = "0 - inativo, 1 - ativo") Boolean ativo,
 
         @Past(message = "A data deve estar no passado") 

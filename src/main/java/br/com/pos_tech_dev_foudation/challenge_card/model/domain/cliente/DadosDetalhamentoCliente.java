@@ -16,13 +16,15 @@ public record DadosDetalhamentoCliente(
     String cpf,
 
     
-   LocalDate dataNascimento
+   LocalDate dataNascimento,
+
+   Boolean ativo
 
    
     ) {
 
         public DadosDetalhamentoCliente(Cliente cliente){
-            this(cliente.getId(), cliente.getNome(), cliente.getEmail(), cliente.getCpf(), cliente.getDataNascimento());
+            this(cliente.getId(), cliente.getNome(), cliente.getEmail(), cliente.getCpf(), cliente.getDataNascimento(), cliente.getAtivo());
 
         }
 
