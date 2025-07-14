@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
 
 public record DadosContrato( 
 
@@ -15,6 +16,7 @@ public record DadosContrato(
 
     @NotNull
     // @Schema(description = "Data de início do contrato no formato AAAA-MM-DD", example = "1990-05-15")
+       
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd") 
     LocalDate data){
     

@@ -1,4 +1,4 @@
-package br.com.pos_tech_dev_foudation.challenge_card.infra;
+package br.com.pos_tech_dev_foudation.challenge_card.infra.exception;
 
 import org.springframework.validation.FieldError;
 

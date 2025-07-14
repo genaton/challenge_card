@@ -30,39 +30,54 @@ public class Cartao {
     private Long id;
 
     // @Schema(description = "número do cartão com 19 dígitos", example = "0123456789012345678")
-    private String numeroCartao;
+    // private String numeroCartao;
 
     // @Schema(description = "valor da anuidade", example = "100.11")
     private Double anuidade;
 
-    @Enumerated(EnumType.STRING)
-    // @Schema(description = "tipo de cartão", example = "CREDITO ou DEBITO")
-    private Tipo tipo;
+    private String tipo;
 
-    @Enumerated(EnumType.STRING)
-    // @Schema(description = "bandeira do cartão", example = "VISA, MASTERCAR ou ELO")
-    private Bandeira bandeira;
+    private String bandeira;
 
-    @Enumerated(EnumType.STRING)
-    // @Schema(description = "nome do cartão", example = "BLACK, PLATINUM ou GOLD")
-    private Nome nome;
+    private String nome;
+
+    // @Enumerated(EnumType.STRING)
+    // // @Schema(description = "tipo de cartão", example = "CREDITO ou DEBITO")
+    // private Tipo tipo;
+
+    // @Enumerated(EnumType.STRING)
+    // // @Schema(description = "bandeira do cartão", example = "VISA, MASTERCAR ou ELO")
+    // private Bandeira bandeira;
+
+    // @Enumerated(EnumType.STRING)
+    // // @Schema(description = "nome do cartão", example = "BLACK, PLATINUM ou GOLD")
+    // private Nome nome;
 
     // @Schema(description = "Indica se o cartao está ou não ativo", example = "0 - inativo ou 1 - ativo")
     private Boolean ativo;
 
     public Cartao(DadosCartao dados) {
         this.ativo = true;
-        this.numeroCartao = dados.numeroCartao();
+        // this.numeroCartao = dados.numeroCartao();
         this.anuidade = dados.anuidade();
         this.tipo = dados.tipo();
         this.bandeira = dados.bandeira();
         this.nome = dados.nome();
 
     }
+
+    public Cartao(Double anuidade, String tipo, String bandeira, String nome, Boolean ativo) {
+    this.anuidade = anuidade;
+    this.tipo = tipo;
+    this.bandeira = bandeira;
+    this.nome = nome;
+    this.ativo = ativo;
+}
+
      public void atualizarInformacoes(DadosAtualizacaoCartao dados) {
-        if (dados.numeroCartao() != null) {
-            this.numeroCartao = dados.numeroCartao();
-        }
+        // if (dados.numeroCartao() != null) {
+        //     this.numeroCartao = dados.numeroCartao();
+        // }
         if (dados.anuidade() != null) {
 
             this.anuidade = dados.anuidade();
