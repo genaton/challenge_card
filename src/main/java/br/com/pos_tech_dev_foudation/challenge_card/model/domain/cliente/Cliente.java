@@ -26,7 +26,7 @@ import lombok.NoArgsConstructor;
 
 public class    Cliente {
 
-    // @Schema(description = "Identificador único do cliente", example = "1")
+    @Schema(description = "Identificador único do cliente", example = "1")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
