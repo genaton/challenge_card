@@ -18,13 +18,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-
-// @Schema(description = "Representa um cliente cadastrado no sistema")
-
 @Table(name = "cliente")
 @Entity(name = "Cliente")
-
-public class    Cliente {
+public class Cliente {
 
     @Schema(description = "Identificador único do cliente", example = "1")
     @Id
@@ -53,8 +49,6 @@ public class    Cliente {
         this.email = dados.email();
         this.cpf = dados.cpf();
         this.dataNascimento = dados.dataNascimento();
-        this.ativo = dados.ativo();
-
     }
 
     public void atualizarInformacoes(DadosAtualizacaoCliente dados) {
@@ -62,10 +56,8 @@ public class    Cliente {
             this.nome = dados.nome();
         }
         if (dados.email() != null) {
-
             this.email = dados.email();
         }
-
         if (dados.cpf() != null) {
             this.cpf = dados.cpf();
         }
@@ -75,7 +67,6 @@ public class    Cliente {
         if (dados.ativo() != null) {
             this.ativo = dados.ativo();
         }
-
     }
 
     public void excluir() {

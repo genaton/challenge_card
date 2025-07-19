@@ -48,143 +48,61 @@ public class ClienteController {
     private ClienteRepository clienteRepository;
 
     @Autowired
-    private CartaoRepository cartaoRepository;
-
-    @Autowired
     private ContratoRepository contratoRepository;
 
     @PostMapping
     @Transactional
     public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroCliente dados, UriComponentsBuilder uriBuilder) {
-        // 1. Criar Cliente
         var cliente = new Cliente(dados);
         clienteRepository.save(cliente);
 
-        // 2. Gerar número do cartão com 19 dígitos
-        // String numero = gerarNumeroCartao();
-
-        // 3. Criar Cartão com número gerado
-
-        // var cartao = new Cartao(
-        // // numero,
-        // dados.anuidadeCartao(),
-        // dados.tipoCartao(),
-        // dados.bandeiraCartao(),
-        // dados.nomeCartao(),
-        // true // ativo
-        // );
-        // cartaoRepository.save(cartao);
-        Optional<Cartao> modelo = cartaoRepository.findByNomeAndTipoAndBandeiraAndAnuidade(
-                dados.nomeCartao(),
-                dados.tipoCartao(),
-                dados.bandeiraCartao(),
-                dados.anuidadeCartao());
-
-        if (modelo.isEmpty()) {
-            return ResponseEntity.badRequest().body("Modelo de cartão não disponível.");
-        }
-
-        var contrato = new Contrato(cliente, modelo.get(), Status.ATIVO, LocalDate.now(), true);
-        contratoRepository.save(contrato);
-
-        // 5. Retornar URI com DTO já existente
+        // Retornar URI com DTO já existente
         var uri = uriBuilder.path("/clientes/{id}").buildAndExpand(cliente.getId()).toUri();
         var resposta = new DadosDetalhamentoCliente(cliente); // Usa seu record
 
         return ResponseEntity.created(uri).body(resposta);
     }
 
-    // private String gerarNumeroCartao() {
-    // // Gera um número com 19 dígitos usando valor positivo
-    // long valor = Math.abs(new Random().nextLong());
-    // return String.format("%019d", valor);
-    // }
-    // apos o endpoint pode-se usar ?size="coloque aqui a quantidade de
-    // registros"&page="coloque aqui no número da página desejada" lembrando que a
-    // pág começa em 0
-    // apos o endpoint pode-se usar ?sort="coloque aqui o atributo que vc deseja
-    // como parametro de ordenação" exp. = nome
-    // apos o endpoint pode-se usar ?sort="coloque aqui o atributo que vc deseja
-    // como parametro de ordenação", desc para orde decrescente exp. = nome
-
-    // // traz todos dados do cliente com paginacao de 10/pag ordenando os registro
-    // por nome ascendente.
-    // @Operation(summary = "consulta cliente")
-    // @ApiResponse(responseCode = "200", description = "cliente encontrado")
-    // @ApiResponse(responseCode = "400", description = "Dados inválidos ou
-    // ausentes")
     @GetMapping
     public ResponseEntity<Page<Cliente>> listar(
-    @ParameterObject
-    @PageableDefault(size = 10, sort = "nome") Pageable paginacao) {
+            @ParameterObject
+            @PageableDefault(size = 10, sort = "nome") Pageable paginacao) {
         var page = clienteRepository.findAll(paginacao);
         return ResponseEntity.ok(page);
 
     }
 
-    // @Operation(summary = "consulta clientes ativos")
-    // @ApiResponse(responseCode = "200", description = "cliente encontrado")
-    // @ApiResponse(responseCode = "400", description = "Dados inválidos ou
-    // ausentes")
     @GetMapping("ativos")
     public ResponseEntity<Page<DadosListagemCliente>> listarAtivo(
             @PageableDefault(size = 10, sort = "nome") Pageable paginacao) {
         var page = clienteRepository.findAllByAtivoTrue(paginacao).map(DadosListagemCliente::new);
         return ResponseEntity.ok(page);
-
     }
 
-    // personaliza os dados a serem exibidos por meio do record
-    // DadosListagemCliente.
-    // @Operation(summary = "consulta dados parciais cliente")
-    // @ApiResponse(responseCode = "200", description = "cliente encontrado")
-    // @ApiResponse(responseCode = "400", description = "Dados inválidos ou
-    // ausentes")
     @GetMapping("dados_parciais")
     public ResponseEntity<Page<DadosListagemCliente>> listarParcial(Pageable paginacao) {
         var page = clienteRepository.findAll(paginacao).map(DadosListagemCliente::new);
         return ResponseEntity.ok(page);
-
     }
 
-    // @Operation(summary = "atualiza dados cliente")
-    // @ApiResponse(responseCode = "200", description = "dados do cliente
-    // atualizados")
-    // @ApiResponse(responseCode = "400", description = "Dados inválidos ou
-    // ausentes")
     @PutMapping
     @Transactional
     public ResponseEntity atualizar(@RequestBody @Valid DadosAtualizacaoCliente dados) {
         var cliente = clienteRepository.getReferenceById(dados.id());
         cliente.atualizarInformacoes(dados);
         return ResponseEntity.ok(new DadosDetalhamentoCliente(cliente));
-
     }
 
-    // @Operation(summary = "detalha dados cliente")
-    // @ApiResponse(responseCode = "200", description = "dados do cliente
-    // detalhados")
-    // @ApiResponse(responseCode = "404", description = "Dados inválidos ou
-    // ausentes")
     @Parameter(name = "id", description = "ID do cliente a ser consultado", required = true)
     @GetMapping("/{id}")
-    @Transactional
     public ResponseEntity detahar(@PathVariable Long id) {
-
         var cliente = clienteRepository.getReferenceById(id);
         return ResponseEntity.ok(new DadosDetalhamentoCliente(cliente));
-
     }
 
-    // @Operation(summary = "exclui dados cliente")
-    // @ApiResponse(responseCode = "204", description = "dados do cliente
-    // excluídos")
-    // @ApiResponse(responseCode = "400", description = "Dados inválidos ou
-    // ausentes")
     @DeleteMapping("/{id}")
     @Transactional
     public ResponseEntity excluir(@PathVariable Long id) {
-        // repository.deleteById(id); //exclusão TOTAL DO REGISTRO
         var cliente = clienteRepository.getReferenceById(id);
         cliente.excluir();
 
@@ -197,9 +115,6 @@ public class ClienteController {
                 cartao.excluir();
             }
         }
-
         return ResponseEntity.noContent().build();
-
     }
-
 }
