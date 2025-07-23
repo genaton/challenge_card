@@ -52,6 +52,7 @@ public class ClienteController {
 
     @PostMapping
     @Transactional
+    @Operation(summary = "Cadastrar um cliente")
     public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroCliente dados, UriComponentsBuilder uriBuilder) {
         var cliente = new Cliente(dados);
         clienteRepository.save(cliente);
@@ -64,6 +65,7 @@ public class ClienteController {
     }
 
     @GetMapping
+    @Operation(summary = "Listar todos os clientes")
     public ResponseEntity<Page<Cliente>> listar(
             @ParameterObject
             @PageableDefault(size = 10, sort = "nome") Pageable paginacao) {
@@ -73,6 +75,7 @@ public class ClienteController {
     }
 
     @GetMapping("ativos")
+    @Operation(summary = "Listar clientes ativos")
     public ResponseEntity<Page<DadosListagemCliente>> listarAtivo(
             @PageableDefault(size = 10, sort = "nome") Pageable paginacao) {
         var page = clienteRepository.findAllByAtivoTrue(paginacao).map(DadosListagemCliente::new);
@@ -80,6 +83,7 @@ public class ClienteController {
     }
 
     @GetMapping("dados_parciais")
+    @Operation(summary = "Listar por paginação")
     public ResponseEntity<Page<DadosListagemCliente>> listarParcial(Pageable paginacao) {
         var page = clienteRepository.findAll(paginacao).map(DadosListagemCliente::new);
         return ResponseEntity.ok(page);
@@ -87,6 +91,7 @@ public class ClienteController {
 
     @PutMapping
     @Transactional
+    @Operation(summary = "Atualizar dados de um cliente")
     public ResponseEntity atualizar(@RequestBody @Valid DadosAtualizacaoCliente dados) {
         var cliente = clienteRepository.getReferenceById(dados.id());
         cliente.atualizarInformacoes(dados);
@@ -95,6 +100,7 @@ public class ClienteController {
 
     @Parameter(name = "id", description = "ID do cliente a ser consultado", required = true)
     @GetMapping("/{id}")
+    @Operation(summary = "Detalhar os dados de um clientes")
     public ResponseEntity detahar(@PathVariable Long id) {
         var cliente = clienteRepository.getReferenceById(id);
         return ResponseEntity.ok(new DadosDetalhamentoCliente(cliente));
@@ -102,6 +108,7 @@ public class ClienteController {
 
     @DeleteMapping("/{id}")
     @Transactional
+    @Operation(summary = "Excluir um clientes - Inativar")
     public ResponseEntity excluir(@PathVariable Long id) {
         var cliente = clienteRepository.getReferenceById(id);
         cliente.excluir();

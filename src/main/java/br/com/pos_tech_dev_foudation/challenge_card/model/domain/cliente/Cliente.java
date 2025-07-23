@@ -64,9 +64,6 @@ public class Cliente {
         if (dados.dataNascimento() != null) {
             this.dataNascimento = dados.dataNascimento();
         }
-        if (dados.ativo() != null) {
-            this.ativo = dados.ativo();
-        }
     }
 
     public void excluir() {

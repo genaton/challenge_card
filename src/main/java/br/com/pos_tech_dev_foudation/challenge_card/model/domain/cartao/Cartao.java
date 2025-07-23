@@ -18,8 +18,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-
-// @Schema(description = "Representa um novo cartão")
 @Table(name = "cartao")
 @Entity(name = "Cartao")
 public class Cartao {
