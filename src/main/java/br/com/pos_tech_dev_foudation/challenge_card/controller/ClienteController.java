@@ -1,13 +1,8 @@
 package br.com.pos_tech_dev_foudation.challenge_card.controller;
 
-import java.time.LocalDate;
-import java.util.Optional;
-import java.util.Random;
-
 import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
@@ -22,22 +17,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cartao.Cartao;
-import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cartao.CartaoRepository;
-import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cartao.DadosCartao;
 import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cliente.Cliente;
 import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cliente.ClienteRepository;
 import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cliente.DadosAtualizacaoCliente;
 import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cliente.DadosCadastroCliente;
 import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cliente.DadosDetalhamentoCliente;
 import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cliente.DadosListagemCliente;
-import br.com.pos_tech_dev_foudation.challenge_card.model.domain.contrato.Contrato;
 import br.com.pos_tech_dev_foudation.challenge_card.model.domain.contrato.ContratoRepository;
-import br.com.pos_tech_dev_foudation.challenge_card.model.domain.contrato.Status;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 
 @RestController
@@ -71,7 +59,6 @@ public class ClienteController {
             @PageableDefault(size = 10, sort = "nome") Pageable paginacao) {
         var page = clienteRepository.findAll(paginacao);
         return ResponseEntity.ok(page);
-
     }
 
     @GetMapping("ativos")
@@ -100,7 +87,7 @@ public class ClienteController {
 
     @Parameter(name = "id", description = "ID do cliente a ser consultado", required = true)
     @GetMapping("/{id}")
-    @Operation(summary = "Detalhar os dados de um clientes")
+    @Operation(summary = "Detalhar os dados de um cliente")
     public ResponseEntity detahar(@PathVariable Long id) {
         var cliente = clienteRepository.getReferenceById(id);
         return ResponseEntity.ok(new DadosDetalhamentoCliente(cliente));
