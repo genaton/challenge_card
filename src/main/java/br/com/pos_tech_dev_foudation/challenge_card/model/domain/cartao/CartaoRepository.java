@@ -16,6 +16,5 @@ public interface CartaoRepository extends JpaRepository<Cartao, Long> {
     Optional<Cartao> findByNomeAndTipoAndBandeiraAndAnuidade(String nome, String tipo, String bandeira,
             Double anuidade);
 
-    // Cartao findByCliente(Cliente cliente);
 
 }

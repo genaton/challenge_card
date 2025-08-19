@@ -27,7 +27,7 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // @Schema(description = "Nome completo do cliente", example = "Maria da Silva")
+    @Schema(description = "Nome completo do cliente", example = "Maria da Silva")
     @Column(name = "nome")
     private String nome;
 
