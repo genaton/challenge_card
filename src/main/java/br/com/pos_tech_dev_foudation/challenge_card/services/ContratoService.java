@@ -16,9 +16,6 @@ import java.time.LocalDate;
 public class ContratoService {
 
     @Autowired
-    private ContratoRepository repository;
-
-    @Autowired
     private ClienteRepository clienteRepository;
 
     @Autowired

@@ -1,5 +1,7 @@
 package br.com.pos_tech_dev_foudation.challenge_card.controller;
 
+import br.com.pos_tech_dev_foudation.challenge_card.services.ClienteService;
+import br.com.pos_tech_dev_foudation.challenge_card.services.ContratoService;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +40,9 @@ public class ClienteController {
 
     @Autowired
     private ContratoRepository contratoRepository;
+
+    @Autowired
+    private ClienteService clienteService;
 
     @PostMapping
     @Transactional
@@ -112,18 +117,7 @@ public class ClienteController {
     @ApiResponse(responseCode = "202", description = "Cliente excluído")
     @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
     public ResponseEntity excluir(@PathVariable Long id) {
-        var cliente = clienteRepository.getReferenceById(id);
-        cliente.excluir();
-
-        var contrato = contratoRepository.findByCliente(cliente);
-        if (contrato != null) {
-            contrato.excluir();
-
-            var cartao = contrato.getCartao();
-            if (cartao != null) {
-                cartao.excluir();
-            }
-        }
+        clienteService.excluirCliente(id);
         return ResponseEntity.noContent().build();
     }
 }
