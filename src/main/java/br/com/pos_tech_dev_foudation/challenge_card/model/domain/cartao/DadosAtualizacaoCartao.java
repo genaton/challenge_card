@@ -14,11 +14,11 @@ public record DadosAtualizacaoCartao(
         @NotNull
         Long id,
 
-        Double anuidade,
+        Bandeira bandeira,
 
         String tipo,
 
-        Bandeira bandeira,
+        String nome,
 
-        String nome
+        Double anuidade
 ) {}

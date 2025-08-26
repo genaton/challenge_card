@@ -42,6 +42,11 @@ public class ContratoService {
             throw new ValidacaoException("Este cartao não está disponível para novas contratações, escolha outro cartão!");
         }
 
+        var contratoCartao = contratoRepository.getContratoesByCartao_Id(dados.cartaoId());
+        if(contratoCartao != null && contratoCartao.getAtivo()){
+            throw new ValidacaoException(("Não foi possível contratar este cartão para o cliente. Já existe um contrato ativo para este cliente e cartão"));
+        }
+
         var contrato = new Contrato(null, cliente, cartao, dados.status(), dados.data(), true);
         contratoRepository.save(contrato);
 

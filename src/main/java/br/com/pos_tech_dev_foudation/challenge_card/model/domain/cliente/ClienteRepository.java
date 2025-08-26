@@ -8,4 +8,5 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long>{
 
     Page<Cliente> findAllByAtivoTrue(Pageable paginacao);
 
+    Cliente getClienteByCpf(String cpf);
 }

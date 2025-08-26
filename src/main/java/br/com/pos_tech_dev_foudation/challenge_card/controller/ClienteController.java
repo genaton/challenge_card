@@ -50,14 +50,12 @@ public class ClienteController {
     @ApiResponse(responseCode = "201", description = "Cliente cadastrado")
     @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
     public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroCliente dados, UriComponentsBuilder uriBuilder) {
-        var cliente = new Cliente(dados);
-        clienteRepository.save(cliente);
+
+        var dadosClienteCadastrado = clienteService.cadastrarCliente(dados);
 
         // Retornar URI com DTO já existente
-        var uri = uriBuilder.path("/clientes/{id}").buildAndExpand(cliente.getId()).toUri();
-        var resposta = new DadosDetalhamentoCliente(cliente); // Usa seu record
-
-        return ResponseEntity.created(uri).body(resposta);
+        var uri = uriBuilder.path("/clientes/{id}").buildAndExpand(dadosClienteCadastrado.id()).toUri();
+        return ResponseEntity.created(uri).body(dadosClienteCadastrado);
     }
 
     @GetMapping
@@ -103,7 +101,7 @@ public class ClienteController {
 
     @Parameter(name = "id", description = "ID do cliente a ser consultado", required = true)
     @GetMapping("/{id}")
-    @Operation(summary = "Detalhar os dados de um cliente")
+    @Operation(summary = "Consultar um cliente")
     @ApiResponse(responseCode = "200", description = "Cliente encontrado")
     @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
     public ResponseEntity detahar(@PathVariable Long id) {

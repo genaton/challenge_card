@@ -13,8 +13,4 @@ public interface CartaoRepository extends JpaRepository<Cartao, Long> {
 
     Page<Cartao> findAllByAtivoTrue(Pageable paginacao);
 
-    Optional<Cartao> findByNomeAndTipoAndBandeiraAndAnuidade(String nome, String tipo, String bandeira,
-            Double anuidade);
-
-
 }

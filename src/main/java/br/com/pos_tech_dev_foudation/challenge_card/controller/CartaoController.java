@@ -52,7 +52,7 @@ public class CartaoController {
     @GetMapping
     public ResponseEntity<Page<Cartao>> listar(
             @ParameterObject
-            @PageableDefault(size = 10, sort = "nome") Pageable paginacao) {
+            @PageableDefault(size = 10, sort = "id") Pageable paginacao) {
         var page = repository.findAll(paginacao);
         return ResponseEntity.ok(page);
     }

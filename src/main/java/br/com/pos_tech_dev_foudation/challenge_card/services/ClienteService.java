@@ -3,8 +3,11 @@ package br.com.pos_tech_dev_foudation.challenge_card.services;
 import br.com.pos_tech_dev_foudation.challenge_card.infra.exception.ValidacaoException;
 import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cartao.Cartao;
 import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cartao.CartaoRepository;
+import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cliente.Cliente;
 import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cliente.ClienteRepository;
+import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cliente.DadosCadastroCliente;
 import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cliente.DadosDetalhamentoCliente;
+import br.com.pos_tech_dev_foudation.challenge_card.model.domain.contrato.Contrato;
 import br.com.pos_tech_dev_foudation.challenge_card.model.domain.contrato.ContratoRepository;
 import br.com.pos_tech_dev_foudation.challenge_card.model.domain.contrato.DadosAtualizacaoContrato;
 import br.com.pos_tech_dev_foudation.challenge_card.model.domain.contrato.DadosDetalhamentoContrato;
@@ -28,5 +31,18 @@ public class ClienteService {
         }
 
         cliente.excluir();
+    }
+
+    public DadosDetalhamentoCliente cadastrarCliente(DadosCadastroCliente dadosCadastroCliente) {
+        var cliente = clienteRepository.getClienteByCpf(dadosCadastroCliente.cpf());
+
+        if(cliente != null) {
+            throw new ValidacaoException("Não foi possível cadastrar cliente. Cliente com cpf já cadastrado. Cliente pode ser ativado, caso inativo.");
+        }
+
+        var clienteCadastro = new Cliente(dadosCadastroCliente);
+        clienteRepository.save(clienteCadastro);
+
+        return new DadosDetalhamentoCliente(clienteCadastro);
     }
 }

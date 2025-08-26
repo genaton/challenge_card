@@ -36,11 +36,11 @@ public class Cartao {
     private Boolean ativo;
 
     public Cartao(DadosCadastroCartao dados) {
-        this.ativo = true;
-        this.anuidade = dados.anuidade();
-        this.tipo = dados.tipo();
         this.bandeira = dados.bandeira();
+        this.tipo = dados.tipo();
         this.nome = dados.nome();
+        this.anuidade = dados.anuidade();
+        this.ativo = true;
     }
 
      public void atualizarInformacoes(DadosAtualizacaoCartao dados) {
