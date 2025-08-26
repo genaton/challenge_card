@@ -56,10 +56,12 @@ Também foram utilizados Design Patterns como:
 ---
 
 🧠 Regras de negócio incluídas
-- Ao criar um cliente, um contrato e um cartão são criados vinculados
-- Ao desativar um cliente, o contrato também é desativado (regra em cascata via controller ou service)
-- Dados que pertencem ao fluxo de entrada (tipoCartao, bandeiraCartao, etc.) estão encapsulados no DTO DadosCadastroCliente para fins de cadastro
-
+- Não é possível excluir um cliente com contrato ativo, deve primeiramente encerrar o contrato, para excluir um cliente.
+- Não é possível contratar um cartão para um cliente inativo.
+- Não é possível cantratar um cartão inativo.
+- Não é possível alterar os dados de um contrato cancelado.
+- Não é possível alterar o contrato para um cartão inativo.
+- Não é possível contratar o mesmo cartão para um cliente.
 
 
 
@@ -69,22 +71,21 @@ Também foram utilizados Design Patterns como:
    ```bash
    git clone https://github.com/genaton/challenge_card
    cd seu-repositorio
-
-2. Configure o banco de dados no application.properties
+2. Configure o banco de dados no application.properties, arquivo localizado em src > main > resources
 3. Execute com:
 
 ./mvnw spring-boot:run
 
 - Acesse a documentação da API:
-👉 http://localhost:8080/swagger-ui.html
+👉 http://localhost:8080/swagger-ui/index.html
 
 📂 Estrutura do Banco de Dados
 O modelo ER contém:
 - Tabela clientes
 - Tabela cartoes
 - Tabela contratacoes
-- Relacionamento 1:1 entre clientes e contratacoes
-- Relacionamento N:1 entre cartoes e contratacoes
+- Relacionamento 1:N entre clientes e contratacoes
+- Relacionamento 1:N entre cartoes e contratacoes
 
 O modelo pode ser acessado em (vide readme.md do repositório):
 https://github.com/genaton/pos_thec_fiap_challenge_db_model
@@ -97,7 +98,7 @@ A demonstração do funcionamento está disponível aqui:
 🤝 Contribuidores
 
 - Carla Aparecida Dutra
-- Elton Fabiano
+- Elton Uramoto
 - Genaton Alex
 - Moises Salgado
 - Renan Paschoalotti

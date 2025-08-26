@@ -1,6 +1,7 @@
 package br.com.pos_tech_dev_foudation.challenge_card.controller;
 
 import br.com.pos_tech_dev_foudation.challenge_card.model.domain.contrato.*;
+import br.com.pos_tech_dev_foudation.challenge_card.repository.ContratoRepository;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.beans.factory.annotation.Autowired;

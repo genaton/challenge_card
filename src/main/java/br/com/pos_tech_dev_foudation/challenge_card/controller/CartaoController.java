@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cartao.Cartao;
-import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cartao.CartaoRepository;
+import br.com.pos_tech_dev_foudation.challenge_card.repository.CartaoRepository;
 import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cartao.DadosAtualizacaoCartao;
 import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cartao.DadosCadastroCartao;
 import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cartao.DadosDetalhamentoCartao;
@@ -52,7 +52,7 @@ public class CartaoController {
     @GetMapping
     public ResponseEntity<Page<Cartao>> listar(
             @ParameterObject
-            @PageableDefault(size = 10, sort = "nome") Pageable paginacao) {
+            @PageableDefault(size = 10, sort = "id") Pageable paginacao) {
         var page = repository.findAll(paginacao);
         return ResponseEntity.ok(page);
     }

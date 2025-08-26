@@ -1,7 +1,6 @@
 package br.com.pos_tech_dev_foudation.challenge_card.controller;
 
 import br.com.pos_tech_dev_foudation.challenge_card.services.ClienteService;
-import br.com.pos_tech_dev_foudation.challenge_card.services.ContratoService;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,12 +20,12 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cliente.Cliente;
-import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cliente.ClienteRepository;
+import br.com.pos_tech_dev_foudation.challenge_card.repository.ClienteRepository;
 import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cliente.DadosAtualizacaoCliente;
 import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cliente.DadosCadastroCliente;
 import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cliente.DadosDetalhamentoCliente;
 import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cliente.DadosListagemCliente;
-import br.com.pos_tech_dev_foudation.challenge_card.model.domain.contrato.ContratoRepository;
+import br.com.pos_tech_dev_foudation.challenge_card.repository.ContratoRepository;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import jakarta.validation.Valid;
@@ -50,14 +49,12 @@ public class ClienteController {
     @ApiResponse(responseCode = "201", description = "Cliente cadastrado")
     @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
     public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroCliente dados, UriComponentsBuilder uriBuilder) {
-        var cliente = new Cliente(dados);
-        clienteRepository.save(cliente);
+
+        var dadosClienteCadastrado = clienteService.cadastrarCliente(dados);
 
         // Retornar URI com DTO já existente
-        var uri = uriBuilder.path("/clientes/{id}").buildAndExpand(cliente.getId()).toUri();
-        var resposta = new DadosDetalhamentoCliente(cliente); // Usa seu record
-
-        return ResponseEntity.created(uri).body(resposta);
+        var uri = uriBuilder.path("/clientes/{id}").buildAndExpand(dadosClienteCadastrado.id()).toUri();
+        return ResponseEntity.created(uri).body(dadosClienteCadastrado);
     }
 
     @GetMapping
@@ -103,7 +100,7 @@ public class ClienteController {
 
     @Parameter(name = "id", description = "ID do cliente a ser consultado", required = true)
     @GetMapping("/{id}")
-    @Operation(summary = "Detalhar os dados de um cliente")
+    @Operation(summary = "Consultar um cliente")
     @ApiResponse(responseCode = "200", description = "Cliente encontrado")
     @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
     public ResponseEntity detahar(@PathVariable Long id) {

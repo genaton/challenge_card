@@ -2,15 +2,12 @@ package br.com.pos_tech_dev_foudation.challenge_card.services;
 
 import br.com.pos_tech_dev_foudation.challenge_card.infra.exception.ValidacaoException;
 import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cartao.Cartao;
-import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cartao.CartaoRepository;
-import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cliente.Cliente;
-import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cliente.ClienteRepository;
+import br.com.pos_tech_dev_foudation.challenge_card.repository.CartaoRepository;
+import br.com.pos_tech_dev_foudation.challenge_card.repository.ClienteRepository;
 import br.com.pos_tech_dev_foudation.challenge_card.model.domain.contrato.*;
-import ch.qos.logback.core.CoreConstants;
+import br.com.pos_tech_dev_foudation.challenge_card.repository.ContratoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.time.LocalDate;
 
 @Service
 public class ContratoService {
@@ -40,6 +37,11 @@ public class ContratoService {
         }
         if(!cartao.getAtivo()) {
             throw new ValidacaoException("Este cartao não está disponível para novas contratações, escolha outro cartão!");
+        }
+
+        var contratoCartao = contratoRepository.getContratoesByCartao_Id(dados.cartaoId());
+        if(contratoCartao != null && contratoCartao.getAtivo()){
+            throw new ValidacaoException(("Não foi possível contratar este cartão para o cliente. Já existe um contrato ativo para este cliente e cartão"));
         }
 
         var contrato = new Contrato(null, cliente, cartao, dados.status(), dados.data(), true);

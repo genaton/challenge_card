@@ -1,15 +1,14 @@
 package br.com.pos_tech_dev_foudation.challenge_card.model.domain.cartao;
 
 public record DadosDetalhamentoCartao(
-    Long id, 
-    Double anuidade,
-    String nome,
+    Long id,
     Bandeira bandeira,
-    String tipo
+    String tipo,
+    String nome,
+    Double anuidade
 ) {
     public DadosDetalhamentoCartao(Cartao cartao){
-        this(cartao.getId(),
-        cartao.getAnuidade(),  cartao.getTipo(),
-        cartao.getBandeira(), cartao.getNome());
+        this(cartao.getId(), cartao.getBandeira(),
+          cartao.getTipo(), cartao.getNome(), cartao.getAnuidade());
     }
 }
