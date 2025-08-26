@@ -2,28 +2,9 @@ package br.com.pos_tech_dev_foudation.challenge_card.model.domain.contrato;
 
 import java.time.LocalDate;
 
-import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cliente.Cliente;
-
-
-
-public record DadosDetalhamentoContrato(
-Long id, 
-Status status, 
-LocalDate data, 
-String cliente,
-String cpf, 
-String nomeCartao,
-String tipoCartao,
-String bandeiraCartao,
-Double anuidade
-) {
-
-     public DadosDetalhamentoContrato(Contrato contrato){
-            this(contrato.getId(), contrato.getStatus(), contrato.getData(), 
-            contrato.getCliente().getNome(),contrato.getCliente().getCpf(), 
-            contrato.getCartao().getNome(), contrato.getCartao().getTipo(), contrato.getCartao().getBandeira(),
-            contrato.getCartao().getAnuidade());
-
-        }
-
+public record DadosDetalhamentoContrato(Long id, Status status, LocalDate data, Long clienteId, Long cartaoId) {
+    public DadosDetalhamentoContrato(Contrato contrato){
+        this(contrato.getId(), contrato.getStatus(), contrato.getData(),
+        contrato.getCliente().getId(), contrato.getCartao().getId());
+    }
 }

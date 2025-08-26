@@ -1,25 +1,14 @@
 package br.com.pos_tech_dev_foudation.challenge_card.model.domain.contrato;
 
+import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cartao.Cartao;
+import br.com.pos_tech_dev_foudation.challenge_card.model.domain.cliente.Cliente;
+
 import java.time.LocalDate;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Past;
-
-public record DadosContrato( 
-
-    @NotNull
-    // @Schema(description = "Estado do contrato", example = "ATIVO ou CANCELADO") 
-    Status status,
-
-    @NotNull
-    // @Schema(description = "Data de início do contrato no formato AAAA-MM-DD", example = "1990-05-15")
-       
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd") 
-    LocalDate data){
-    
-    
-
+public record DadosContrato(Long id, String cartao, String cliente, LocalDate data_contrato, Status status) {
+    public DadosContrato(Contrato contrato) {
+        this(contrato.getId(), contrato.getCartao().getNome(), contrato.getCliente().getNome(), contrato.getData(), contrato.getStatus());
+    }
 }
+
+
