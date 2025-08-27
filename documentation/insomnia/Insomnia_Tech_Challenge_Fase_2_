@@ -1,0 +1,1085 @@
+{
+	"log": {
+		"version": "1.2",
+		"creator": {
+			"name": "Insomnia REST Client",
+			"version": "insomnia.desktop.app:v11.3.0"
+		},
+		"entries": [
+			{
+				"startedDateTime": "2025-08-27T21:47:43.838Z",
+				"time": 8.696,
+				"request": {
+					"method": "POST",
+					"url": "http://localhost:8080/cartoes",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/11.3.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "{\n\t\"bandeira\": \"TESTE\",\n\t\"tipo\": \"CREDITO\",\n\t\"nome\": \"TESTEMERGE\",\t\n\t\"anuidade\": 300\n}\t\n"
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 400,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Wed, 27 Aug 2025 21:10:02 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "close"
+						}
+					],
+					"content": {
+						"size": 348,
+						"mimeType": "application/json",
+						"text": "{\"timestamp\":\"2025-08-27T21:10:02.386+00:00\",\"status\":400,\"error\":\"Bad Request\",\"message\":\"JSON parse error: Cannot deserialize value of type `br.com.pos_tech_dev_foudation.challenge_card.model.domain.cartao.Bandeira` from String \\\"TESTE\\\": not one of the values accepted for Enum class: [AMERICANEXPRESS, VISA, MASTERCARD, ELO]\",\"path\":\"/cartoes\"}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 8.696,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "Cadastrar cartao"
+			},
+			{
+				"startedDateTime": "2025-08-27T21:47:43.838Z",
+				"time": 26.849,
+				"request": {
+					"method": "DELETE",
+					"url": "http://localhost:8080/clientes/13",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "User-Agent",
+							"value": "insomnia/11.3.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 204,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Date",
+							"value": "Wed, 27 Aug 2025 20:30:50 GMT"
+						}
+					],
+					"content": {
+						"size": 0,
+						"mimeType": "",
+						"text": ""
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 26.849,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "Excluir cliente"
+			},
+			{
+				"startedDateTime": "2025-08-27T21:47:43.838Z",
+				"time": 12.791,
+				"request": {
+					"method": "DELETE",
+					"url": "http://localhost:8080/cartoes/12",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "User-Agent",
+							"value": "insomnia/11.3.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 204,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Date",
+							"value": "Wed, 27 Aug 2025 20:36:51 GMT"
+						}
+					],
+					"content": {
+						"size": 0,
+						"mimeType": "",
+						"text": ""
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 12.791,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "Excluir cartao"
+			},
+			{
+				"startedDateTime": "2025-08-27T21:47:43.838Z",
+				"time": 20.651,
+				"request": {
+					"method": "PUT",
+					"url": "http://localhost:8080/cartoes",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/11.3.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "{\n\t\"id\": 12,\n\t\"anuidade\": 1500\n}"
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Wed, 27 Aug 2025 20:36:42 GMT"
+						}
+					],
+					"content": {
+						"size": 81,
+						"mimeType": "application/json",
+						"text": "{\"id\":12,\"bandeira\":\"ELO\",\"tipo\":\"CREDITO\",\"nome\":\"TESTEMERGE\",\"anuidade\":1500.0}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 20.651,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "Atualizar cartao"
+			},
+			{
+				"startedDateTime": "2025-08-27T21:47:43.838Z",
+				"time": 7.816999999999999,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8080/cartoes",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "User-Agent",
+							"value": "insomnia/11.3.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Wed, 27 Aug 2025 20:36:56 GMT"
+						}
+					],
+					"content": {
+						"size": 1175,
+						"mimeType": "application/json",
+						"text": "{\"content\":[{\"id\":1,\"anuidade\":500.0,\"tipo\":\"CRÉDITO\",\"bandeira\":\"VISA\",\"nome\":\"Platinum\",\"ativo\":true},{\"id\":2,\"anuidade\":300.0,\"tipo\":\"CRÉDITO\",\"bandeira\":\"VISA\",\"nome\":\"INFINITE\",\"ativo\":false},{\"id\":3,\"anuidade\":0.0,\"tipo\":\"DÉBITO\",\"bandeira\":\"MASTERCARD\",\"nome\":\"master\",\"ativo\":false},{\"id\":6,\"anuidade\":1000.0,\"tipo\":\"tipoteste\",\"bandeira\":\"VISA\",\"nome\":\"nometestecartao\",\"ativo\":true},{\"id\":7,\"anuidade\":1000.0,\"tipo\":\"tipoteste\",\"bandeira\":\"VISA\",\"nome\":\"nometestecartao\",\"ativo\":true},{\"id\":9,\"anuidade\":300.0,\"tipo\":\"CREDITO\",\"bandeira\":\"VISA\",\"nome\":\"PLATINUN\",\"ativo\":true},{\"id\":10,\"anuidade\":200.0,\"tipo\":\"CREDITO\",\"bandeira\":\"ELO\",\"nome\":\"PLATINUN\",\"ativo\":true},{\"id\":11,\"anuidade\":300.0,\"tipo\":\"CREDITO\",\"bandeira\":\"ELO\",\"nome\":\"OUROCARD\",\"ativo\":true},{\"id\":12,\"anuidade\":1500.0,\"tipo\":\"CREDITO\",\"bandeira\":\"ELO\",\"nome\":\"TESTEMERGE\",\"ativo\":false}],\"pageable\":{\"pageNumber\":0,\"pageSize\":10,\"sort\":{\"empty\":false,\"sorted\":true,\"unsorted\":false},\"offset\":0,\"paged\":true,\"unpaged\":false},\"last\":true,\"totalPages\":1,\"totalElements\":9,\"first\":true,\"numberOfElements\":9,\"size\":10,\"number\":0,\"sort\":{\"empty\":false,\"sorted\":true,\"unsorted\":false},\"empty\":false}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 7.816999999999999,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "Listar cartoes"
+			},
+			{
+				"startedDateTime": "2025-08-27T21:47:43.838Z",
+				"time": 14.689,
+				"request": {
+					"method": "DELETE",
+					"url": "http://localhost:8080/contrato/6",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "User-Agent",
+							"value": "insomnia/11.3.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 204,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Date",
+							"value": "Wed, 27 Aug 2025 20:39:03 GMT"
+						}
+					],
+					"content": {
+						"size": 0,
+						"mimeType": "",
+						"text": ""
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 14.689,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "Cancelar Contrato"
+			},
+			{
+				"startedDateTime": "2025-08-27T21:47:43.838Z",
+				"time": 5.593,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8080/contrato/1",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "User-Agent",
+							"value": "insomnia/11.3.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Tue, 19 Aug 2025 03:43:58 GMT"
+						}
+					],
+					"content": {
+						"size": 108,
+						"mimeType": "application/json",
+						"text": "{\"id\":1,\"cartao\":\"INFINITE\",\"cliente\":\"Elton Fabiano Uramoto\",\"data_contrato\":\"2025-08-18\",\"status\":\"ATIVO\"}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 5.593,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "Consultar Contrato por ID"
+			},
+			{
+				"startedDateTime": "2025-08-27T21:47:43.838Z",
+				"time": 9.509,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8080/cartoes/ativos",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "User-Agent",
+							"value": "insomnia/11.3.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Wed, 27 Aug 2025 20:10:18 GMT"
+						}
+					],
+					"content": {
+						"size": 678,
+						"mimeType": "application/json",
+						"text": "{\"content\":[{\"tipo\":\"tipoteste\",\"bandeira\":\"VISA\",\"nome\":\"nometestecartao\",\"anuidade\":1000.0,\"ativo\":true},{\"tipo\":\"tipoteste\",\"bandeira\":\"VISA\",\"nome\":\"nometestecartao\",\"anuidade\":1000.0,\"ativo\":true},{\"tipo\":\"CRÉDITO\",\"bandeira\":\"VISA\",\"nome\":\"Platinum\",\"anuidade\":500.0,\"ativo\":true},{\"tipo\":\"CREDITO\",\"bandeira\":\"VISA\",\"nome\":\"PLATINUN\",\"anuidade\":300.0,\"ativo\":true}],\"pageable\":{\"pageNumber\":0,\"pageSize\":10,\"sort\":{\"empty\":false,\"sorted\":true,\"unsorted\":false},\"offset\":0,\"paged\":true,\"unpaged\":false},\"last\":true,\"totalPages\":1,\"totalElements\":4,\"first\":true,\"size\":10,\"number\":0,\"numberOfElements\":4,\"sort\":{\"empty\":false,\"sorted\":true,\"unsorted\":false},\"empty\":false}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 9.509,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "Listar cartoes ativos"
+			},
+			{
+				"startedDateTime": "2025-08-27T21:47:43.838Z",
+				"time": 19.996,
+				"request": {
+					"method": "PUT",
+					"url": "http://localhost:8080/contrato",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/11.3.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "{\n\t\"id\": 6,\n\t\"data\": \"2025-08-19\"\n}"
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Wed, 27 Aug 2025 20:38:53 GMT"
+						}
+					],
+					"content": {
+						"size": 74,
+						"mimeType": "application/json",
+						"text": "{\"id\":6,\"status\":\"ATIVO\",\"data\":\"2025-08-19\",\"clienteId\":12,\"cartaoId\":11}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 19.996,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "Atualizar Contrato"
+			},
+			{
+				"startedDateTime": "2025-08-27T21:47:43.838Z",
+				"time": 17.534000000000002,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8080/contrato/ativos",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "User-Agent",
+							"value": "insomnia/11.3.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Wed, 20 Aug 2025 00:00:11 GMT"
+						}
+					],
+					"content": {
+						"size": 390,
+						"mimeType": "application/json",
+						"text": "{\"content\":[{\"id\":1,\"data\":\"2025-08-19\",\"cliente_id\":1,\"cartao_id\":1,\"status\":\"ATIVO\"}],\"pageable\":{\"pageNumber\":0,\"pageSize\":10,\"sort\":{\"empty\":true,\"sorted\":false,\"unsorted\":true},\"offset\":0,\"paged\":true,\"unpaged\":false},\"last\":true,\"totalElements\":1,\"totalPages\":1,\"size\":10,\"number\":0,\"numberOfElements\":1,\"first\":true,\"sort\":{\"empty\":true,\"sorted\":false,\"unsorted\":true},\"empty\":false}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 17.534000000000002,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "Listar Contratos Ativos"
+			},
+			{
+				"startedDateTime": "2025-08-27T21:47:43.838Z",
+				"time": 18.854,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8080/contrato",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "User-Agent",
+							"value": "insomnia/11.3.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Wed, 27 Aug 2025 20:39:07 GMT"
+						}
+					],
+					"content": {
+						"size": 1795,
+						"mimeType": "application/json",
+						"text": "{\"content\":[{\"id\":1,\"cliente\":{\"id\":1,\"nome\":\"Elton Fabiano Uramoto\",\"email\":\"elton.uramoto@gmail.com\",\"cpf\":\"98923552100\",\"dataNascimento\":\"1982-12-02\",\"ativo\":true},\"cartao\":{\"id\":1,\"anuidade\":500.0,\"tipo\":\"CRÉDITO\",\"bandeira\":\"VISA\",\"nome\":\"Platinum\",\"ativo\":true},\"status\":\"ATIVO\",\"data\":\"2025-08-19\",\"ativo\":true},{\"id\":2,\"cliente\":{\"id\":2,\"nome\":\"Genaton\",\"email\":\"genaton@bb.com.br\",\"cpf\":\"12345678900\",\"dataNascimento\":\"1989-01-01\",\"ativo\":true},\"cartao\":{\"id\":2,\"anuidade\":300.0,\"tipo\":\"CRÉDITO\",\"bandeira\":\"VISA\",\"nome\":\"INFINITE\",\"ativo\":false},\"status\":\"ATIVO\",\"data\":\"2025-08-18\",\"ativo\":false},{\"id\":4,\"cliente\":{\"id\":9,\"nome\":\"Vinicius\",\"email\":\"vinicius@fiap.com.br\",\"cpf\":\"12345678901\",\"dataNascimento\":\"2000-01-01\",\"ativo\":true},\"cartao\":{\"id\":9,\"anuidade\":300.0,\"tipo\":\"CREDITO\",\"bandeira\":\"VISA\",\"nome\":\"PLATINUN\",\"ativo\":true},\"status\":\"ATIVO\",\"data\":\"2025-08-23\",\"ativo\":true},{\"id\":5,\"cliente\":{\"id\":12,\"nome\":\"testeElton\",\"email\":\"testeElton@bb.com.br\",\"cpf\":\"12345678904\",\"dataNascimento\":\"2000-01-01\",\"ativo\":true},\"cartao\":{\"id\":10,\"anuidade\":200.0,\"tipo\":\"CREDITO\",\"bandeira\":\"ELO\",\"nome\":\"PLATINUN\",\"ativo\":true},\"status\":\"ATIVO\",\"data\":\"2025-08-27\",\"ativo\":true},{\"id\":6,\"cliente\":{\"id\":12,\"nome\":\"testeElton\",\"email\":\"testeElton@bb.com.br\",\"cpf\":\"12345678904\",\"dataNascimento\":\"2000-01-01\",\"ativo\":true},\"cartao\":{\"id\":11,\"anuidade\":300.0,\"tipo\":\"CREDITO\",\"bandeira\":\"ELO\",\"nome\":\"OUROCARD\",\"ativo\":true},\"status\":\"ATIVO\",\"data\":\"2025-08-19\",\"ativo\":false}],\"pageable\":{\"pageNumber\":0,\"pageSize\":10,\"sort\":{\"empty\":false,\"sorted\":true,\"unsorted\":false},\"offset\":0,\"paged\":true,\"unpaged\":false},\"last\":true,\"totalPages\":1,\"totalElements\":5,\"first\":true,\"numberOfElements\":5,\"size\":10,\"number\":0,\"sort\":{\"empty\":false,\"sorted\":true,\"unsorted\":false},\"empty\":false}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 18.854,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "Listar Contratos"
+			},
+			{
+				"startedDateTime": "2025-08-27T21:47:43.838Z",
+				"time": 8.562,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8080/contrato/dados_parciais",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "User-Agent",
+							"value": "insomnia/11.3.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Tue, 19 Aug 2025 03:01:08 GMT"
+						}
+					],
+					"content": {
+						"size": 465,
+						"mimeType": "application/json",
+						"text": "{\"content\":[{\"id\":1,\"data\":\"2025-08-18\",\"cliente_id\":1,\"cartao_id\":2,\"status\":\"ATIVO\"},{\"id\":2,\"data\":\"2025-08-18\",\"cliente_id\":2,\"cartao_id\":2,\"status\":\"ATIVO\"}],\"pageable\":{\"pageNumber\":0,\"pageSize\":20,\"sort\":{\"empty\":true,\"sorted\":false,\"unsorted\":true},\"offset\":0,\"paged\":true,\"unpaged\":false},\"last\":true,\"totalElements\":2,\"totalPages\":1,\"size\":20,\"number\":0,\"numberOfElements\":2,\"first\":true,\"sort\":{\"empty\":true,\"sorted\":false,\"unsorted\":true},\"empty\":false}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 8.562,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "Listar Dados Parciais Contratos"
+			},
+			{
+				"startedDateTime": "2025-08-27T21:47:43.838Z",
+				"time": 20.927999999999997,
+				"request": {
+					"method": "POST",
+					"url": "http://localhost:8080/contrato",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/11.3.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "{\n\t\"status\": \"ATIVO\",\n\t\"data\": \"2025-08-27\",\n\t\"clienteId\": 12,\n\t\"cartaoId\": 11\n}"
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 500,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Wed, 27 Aug 2025 20:38:00 GMT"
+						},
+						{
+							"name": "Connection",
+							"value": "close"
+						}
+					],
+					"content": {
+						"size": 236,
+						"mimeType": "application/json",
+						"text": "{\"timestamp\":\"2025-08-27T20:38:00.734+00:00\",\"status\":500,\"error\":\"Internal Server Error\",\"message\":\"Não foi possível contratar este cartão para o cliente. Já existe um contrato ativo para este cliente e cartão\",\"path\":\"/contrato\"}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 20.927999999999997,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "Contratação de cartão"
+			},
+			{
+				"startedDateTime": "2025-08-27T21:47:43.838Z",
+				"time": 10.424,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8080/clientes",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/11.3.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Wed, 27 Aug 2025 20:33:11 GMT"
+						}
+					],
+					"content": {
+						"size": 1522,
+						"mimeType": "application/json",
+						"text": "{\"content\":[{\"id\":3,\"nome\":\"Carla\",\"email\":\"carla@bb.com.br\",\"cpf\":\"91537395199\",\"dataNascimento\":\"1990-01-01\",\"ativo\":true},{\"id\":1,\"nome\":\"Elton Fabiano Uramoto\",\"email\":\"elton.uramoto@gmail.com\",\"cpf\":\"98923552100\",\"dataNascimento\":\"1982-12-02\",\"ativo\":true},{\"id\":2,\"nome\":\"Genaton\",\"email\":\"genaton@bb.com.br\",\"cpf\":\"12345678900\",\"dataNascimento\":\"1989-01-01\",\"ativo\":true},{\"id\":5,\"nome\":\"Moises\",\"email\":\"moises@bb.com.br\",\"cpf\":\"23456789054\",\"dataNascimento\":\"1990-01-01\",\"ativo\":true},{\"id\":4,\"nome\":\"Renan\",\"email\":\"renan@bb.com.br\",\"cpf\":\"12345678865\",\"dataNascimento\":\"1990-01-01\",\"ativo\":true},{\"id\":6,\"nome\":\"teste\",\"email\":\"teste@bb.com.br\",\"cpf\":\"23456784054\",\"dataNascimento\":\"1990-01-01\",\"ativo\":false},{\"id\":11,\"nome\":\"teste\",\"email\":\"teste@fiap.com.br\",\"cpf\":\"12345678902\",\"dataNascimento\":\"2000-01-01\",\"ativo\":true},{\"id\":12,\"nome\":\"testeElton\",\"email\":\"testeElton@bb.com.br\",\"cpf\":\"12345678904\",\"dataNascimento\":\"2000-01-01\",\"ativo\":true},{\"id\":13,\"nome\":\"testeMergeMain\",\"email\":\"testeMergeMain@bb.com.br\",\"cpf\":\"12345678905\",\"dataNascimento\":\"2020-01-01\",\"ativo\":false},{\"id\":9,\"nome\":\"Vinicius\",\"email\":\"vinicius@fiap.com.br\",\"cpf\":\"12345678901\",\"dataNascimento\":\"2000-01-01\",\"ativo\":true}],\"pageable\":{\"pageNumber\":0,\"pageSize\":10,\"sort\":{\"empty\":false,\"sorted\":true,\"unsorted\":false},\"offset\":0,\"paged\":true,\"unpaged\":false},\"last\":true,\"totalPages\":1,\"totalElements\":10,\"first\":true,\"numberOfElements\":10,\"size\":10,\"number\":0,\"sort\":{\"empty\":false,\"sorted\":true,\"unsorted\":false},\"empty\":false}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 10.424,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "Consultar Clientes"
+			},
+			{
+				"startedDateTime": "2025-08-27T21:47:43.838Z",
+				"time": 36.846,
+				"request": {
+					"method": "GET",
+					"url": "http://localhost:8080/clientes/ativos",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/11.3.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": ""
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Wed, 27 Aug 2025 20:30:31 GMT"
+						}
+					],
+					"content": {
+						"size": 957,
+						"mimeType": "application/json",
+						"text": "{\"content\":[{\"id\":3,\"nome\":\"Carla\",\"email\":\"carla@bb.com.br\",\"ativo\":true},{\"id\":1,\"nome\":\"Elton Fabiano Uramoto\",\"email\":\"elton.uramoto@gmail.com\",\"ativo\":true},{\"id\":2,\"nome\":\"Genaton\",\"email\":\"genaton@bb.com.br\",\"ativo\":true},{\"id\":5,\"nome\":\"Moises\",\"email\":\"moises@bb.com.br\",\"ativo\":true},{\"id\":4,\"nome\":\"Renan\",\"email\":\"renan@bb.com.br\",\"ativo\":true},{\"id\":11,\"nome\":\"teste\",\"email\":\"teste@fiap.com.br\",\"ativo\":true},{\"id\":12,\"nome\":\"testeElton\",\"email\":\"testeMergeMain@bb.com.br\",\"ativo\":true},{\"id\":13,\"nome\":\"testeMergeMain\",\"email\":\"testeMerge@fiap.com.br\",\"ativo\":true},{\"id\":9,\"nome\":\"Vinicius\",\"email\":\"vinicius@fiap.com.br\",\"ativo\":true}],\"pageable\":{\"pageNumber\":0,\"pageSize\":10,\"sort\":{\"empty\":false,\"sorted\":true,\"unsorted\":false},\"offset\":0,\"paged\":true,\"unpaged\":false},\"last\":true,\"totalPages\":1,\"totalElements\":9,\"first\":true,\"numberOfElements\":9,\"size\":10,\"number\":0,\"sort\":{\"empty\":false,\"sorted\":true,\"unsorted\":false},\"empty\":false}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 36.846,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "Consultar Clientes Ativos"
+			},
+			{
+				"startedDateTime": "2025-08-27T21:47:43.838Z",
+				"time": 392.272,
+				"request": {
+					"method": "POST",
+					"url": "http://localhost:8080/clientes",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/11.3.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "{\n\t\"nome\":\"testeMergeMain\",\n\t\"email\": \"testeMerge@fiap.com.br\",\n\t\"cpf\": \"12345678905\",\n\t\"dataNascimento\": \"2020-01-01\"\n}"
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 201,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Location",
+							"value": "http://localhost:8080/clientes/13"
+						},
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Wed, 27 Aug 2025 20:30:08 GMT"
+						}
+					],
+					"content": {
+						"size": 129,
+						"mimeType": "application/json",
+						"text": "{\"id\":13,\"nome\":\"testeMergeMain\",\"email\":\"testeMerge@fiap.com.br\",\"cpf\":\"12345678905\",\"dataNascimento\":\"2020-01-01\",\"ativo\":true}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 392.272,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "Cadastrar Cliente"
+			},
+			{
+				"startedDateTime": "2025-08-27T21:47:43.838Z",
+				"time": 17.78,
+				"request": {
+					"method": "PUT",
+					"url": "http://localhost:8080/clientes",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "User-Agent",
+							"value": "insomnia/11.3.0"
+						}
+					],
+					"queryString": [],
+					"postData": {
+						"mimeType": "application/json",
+						"text": "{\n\t\"id\": 13,\n\t\"email\":\"testeMergeMain@bb.com.br\"\n}"
+					},
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"response": {
+					"status": 200,
+					"statusText": "",
+					"httpVersion": "HTTP/1.1",
+					"cookies": [],
+					"headers": [
+						{
+							"name": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"name": "Date",
+							"value": "Wed, 27 Aug 2025 20:33:07 GMT"
+						}
+					],
+					"content": {
+						"size": 132,
+						"mimeType": "application/json",
+						"text": "{\"id\":13,\"nome\":\"testeMergeMain\",\"email\":\"testeMergeMain@bb.com.br\",\"cpf\":\"12345678905\",\"dataNascimento\":\"2020-01-01\",\"ativo\":false}"
+					},
+					"redirectURL": "",
+					"headersSize": -1,
+					"bodySize": -1
+				},
+				"cache": {},
+				"timings": {
+					"blocked": -1,
+					"dns": -1,
+					"connect": -1,
+					"send": 0,
+					"wait": 17.78,
+					"receive": 0,
+					"ssl": -1
+				},
+				"comment": "Atualizar Cliente"
+			}
+		]
+	}
+}

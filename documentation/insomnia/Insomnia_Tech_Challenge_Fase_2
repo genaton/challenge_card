@@ -1,0 +1,472 @@
+type: collection.insomnia.rest/5.0
+name: Tech_challenge_Fase_2
+meta:
+  id: wrk_b3fc66cfda564bdc8d3238dca7d3b2d6
+  created: 1752801629994
+  modified: 1756330735251
+  description: ""
+collection:
+  - name: Cliente
+    meta:
+      id: fld_c74eebcc0ef04222984596105af56241
+      created: 1755395925328
+      modified: 1755395925328
+      sortKey: -1755395925328
+      description: ""
+    children:
+      - url: http://localhost:8080/clientes
+        name: Consultar Clientes
+        meta:
+          id: req_034829ac74804266a88076cbeda87441
+          created: 1752801630051
+          modified: 1755395936556
+          isPrivate: false
+          description: ""
+          sortKey: -1755395931589
+        method: GET
+        body:
+          mimeType: application/json
+          text: ""
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.3.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/clientes
+        name: Cadastrar Cliente
+        meta:
+          id: req_dc2456efa6eb46cf95e48ae225d01b52
+          created: 1752930766913
+          modified: 1756326606021
+          isPrivate: false
+          description: ""
+          sortKey: -1755395931489
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"nome":"testeMergeMain",
+            	"email": "testeMerge@fiap.com.br",
+            	"cpf": "12345678905",
+            	"dataNascimento": "2020-01-01"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.3.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/clientes
+        name: Atualizar Cliente
+        meta:
+          id: req_ee5f6d1b593b4f32b18007f51ff6f385
+          created: 1752932293133
+          modified: 1756326785823
+          isPrivate: false
+          description: ""
+          sortKey: -1755395931389
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 13,
+            	"email":"testeMergeMain@bb.com.br"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.3.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/clientes/ativos
+        name: Consultar Clientes Ativos
+        meta:
+          id: req_5c4d4806e6364bec9cfea8317d25679d
+          created: 1755571672816
+          modified: 1756246168309
+          isPrivate: false
+          description: ""
+          sortKey: -1755395931539
+        method: GET
+        body:
+          mimeType: application/json
+          text: ""
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.3.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/clientes/13
+        name: Excluir cliente
+        meta:
+          id: req_02908380d0e940dd9f5400f332badb13
+          created: 1755647704099
+          modified: 1756326649147
+          isPrivate: false
+          description: ""
+          sortKey: -1755647704099
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.3.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Cartão
+    meta:
+      id: fld_cf4c2bccd94c48b4a57d68e5ae18084e
+      created: 1755395951604
+      modified: 1755395951604
+      sortKey: -1755395951604
+      description: ""
+    children:
+      - url: http://localhost:8080/cartoes/ativos
+        name: Listar cartoes ativos
+        meta:
+          id: req_9226429f7ce542fd9aa8a9d7987ff694
+          created: 1755571149182
+          modified: 1755637218168
+          isPrivate: false
+          description: ""
+          sortKey: -1755571149182
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.3.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/cartoes
+        name: Listar cartoes
+        meta:
+          id: req_525330da841e450586836ffc0bd614da
+          created: 1755637123225
+          modified: 1755637200407
+          isPrivate: false
+          description: ""
+          sortKey: -1755637123225
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.3.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/cartoes
+        name: Atualizar cartao
+        meta:
+          id: req_038ac28a7f4640c591871adad12347b4
+          created: 1755637224265
+          modified: 1756327000809
+          isPrivate: false
+          description: ""
+          sortKey: -1755637224265
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 12,
+            	"anuidade": 1500
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.3.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/cartoes/12
+        name: Excluir cartao
+        meta:
+          id: req_843912b0a2f04138b77e221396c78d41
+          created: 1755637573596
+          modified: 1756327010380
+          isPrivate: false
+          description: ""
+          sortKey: -1755637573596
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.3.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/cartoes
+        name: Cadastrar cartao
+        meta:
+          id: req_445d2a1856174401bb9dee5533b427ae
+          created: 1755817850929
+          modified: 1756328999926
+          isPrivate: false
+          description: ""
+          sortKey: -1755817850929
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            {
+            	"bandeira": "TESTE",
+            	"tipo": "CREDITO",
+            	"nome": "TESTEMERGE",	
+            	"anuidade": 300
+            }	
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.3.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Contrato
+    meta:
+      id: fld_1891f448f995417791339c395cd1a246
+      created: 1755395961609
+      modified: 1755395961609
+      sortKey: -1755395961609
+      description: ""
+    children:
+      - url: http://localhost:8080/contrato
+        name: Contratação de cartão
+        meta:
+          id: req_d061c4ff0c6a4fbb8cef3a96b4973eff
+          created: 1755395984662
+          modified: 1756327048085
+          isPrivate: false
+          description: ""
+          sortKey: -1755395984662
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"status": "ATIVO",
+            	"data": "2025-08-27",
+            	"clienteId": 12,
+            	"cartaoId": 11
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.3.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/contrato
+        name: Listar Contratos
+        meta:
+          id: req_e3514725eaa4485daad6153d194c877b
+          created: 1755565517109
+          modified: 1755565966821
+          isPrivate: false
+          description: ""
+          sortKey: -1755565517109
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.3.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/contrato/dados_parciais
+        name: Listar Dados Parciais Contratos
+        meta:
+          id: req_9e37e1c43e5448e5967983b48ab29c1e
+          created: 1755565953035
+          modified: 1755566107583
+          isPrivate: false
+          description: ""
+          sortKey: -1755480750885.5
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.3.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/contrato/ativos
+        name: Listar Contratos Ativos
+        meta:
+          id: req_c9b5e0dbf59f40d39878d5a2c2090a4d
+          created: 1755566342759
+          modified: 1755566370456
+          isPrivate: false
+          description: ""
+          sortKey: -1755566342759
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.3.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/contrato
+        name: Atualizar Contrato
+        meta:
+          id: req_a7f6e0ff9e7d426aaf714705504e77fe
+          created: 1755571053513
+          modified: 1756327132042
+          isPrivate: false
+          description: ""
+          sortKey: -1755571053513
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 6,
+            	"data": "2025-08-19"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.3.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/contrato/1
+        name: Consultar Contrato por ID
+        meta:
+          id: req_72869d3bcd8641b0a69e7a7d13a8c421
+          created: 1755572099528
+          modified: 1755575037010
+          isPrivate: false
+          description: ""
+          sortKey: -1755572099528
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.3.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/contrato/6
+        name: Cancelar Contrato
+        meta:
+          id: req_c3ba01e4fdd145e581481f9014442230
+          created: 1755575056864
+          modified: 1756327141747
+          isPrivate: false
+          description: ""
+          sortKey: -1755575056864
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.3.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_68202e916c11d0440d80be00f47c5d1501b69dff
+    created: 1752801630003
+    modified: 1752801630003
+environments:
+  name: Base Environment
+  meta:
+    id: env_68202e916c11d0440d80be00f47c5d1501b69dff
+    created: 1752801630000
+    modified: 1752801630000
+    isPrivate: false

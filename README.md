@@ -16,7 +16,7 @@ Este projeto foi desenvolvido como parte do **Tech Challenge - Fase 2** da Pós-
 
 4. No MySQL, executar o comando de criação da base de dados: Create database challenge_api
 
-5. Abra o projeto em uma IDE e execute:
+5. Abra o projeto e execute:
 
    ./mvnw spring-boot:run
 
