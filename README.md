@@ -18,7 +18,7 @@ Este projeto foi desenvolvido como parte do **Tech Challenge - Fase 2** da Pós-
 
 5. Abra o projeto em uma IDE e execute:
 
-./mvnw spring-boot:run
+   ./mvnw spring-boot:run
 
 ---
 
@@ -38,9 +38,3 @@ Este projeto foi desenvolvido como parte do **Tech Challenge - Fase 2** da Pós-
 
 - Acesse a documentação da API:
 👉 http://localhost:8080/swagger-ui/index.html
-
-
-
-
-
-

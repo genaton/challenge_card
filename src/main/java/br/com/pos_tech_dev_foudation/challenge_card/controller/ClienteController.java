@@ -47,7 +47,8 @@ public class ClienteController {
     @Transactional
     @Operation(summary = "Cadastrar um cliente")
     @ApiResponse(responseCode = "201", description = "Cliente cadastrado")
-    @ApiResponse(responseCode = "500", description = "Dados inválidos ou ausentes")
+    @ApiResponse(responseCode = "400", description = "Dados enviados estão inválidos.")
+    @ApiResponse(responseCode = "500", description = "Dados enviados em desacordo com as regras de negócio.")
     public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroCliente dados, UriComponentsBuilder uriBuilder) {
         var dadosClienteCadastrado = clienteService.cadastrarCliente(dados);
 

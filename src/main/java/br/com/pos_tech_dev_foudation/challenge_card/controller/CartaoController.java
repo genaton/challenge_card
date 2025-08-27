@@ -40,7 +40,8 @@ public class CartaoController {
     @Transactional
     @Operation(summary = "Cadastrar um cartão")
     @ApiResponse(responseCode = "201", description = "Cartao cadastrado")
-    @ApiResponse(responseCode = "500", description = "Dados inválidos ou ausentes")
+    @ApiResponse(responseCode = "400", description = "Dados enviados estáo inválidos.")
+    @ApiResponse(responseCode = "500", description = "Dados enviados em desacordo com as regras de negócio.")
     public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroCartao dados, UriComponentsBuilder uriBilder) {
         var dadosCartaoCadastrado = cartaoService.cadastrarCartao(dados);
 
@@ -81,7 +82,8 @@ public class CartaoController {
 
     @Operation(summary = "Atualizar dados de um cartão")
     @ApiResponse(responseCode = "201", description = "Dados do cartao atualizado")
-    @ApiResponse(responseCode = "500", description = "Dados inválidos ou ausentes")
+    @ApiResponse(responseCode = "400", description = "Dados enviados estáo inválidos.")
+    @ApiResponse(responseCode = "500", description = "Dados enviados em desacordo com as regras de negócio.")
     @PutMapping
     @Transactional
     public ResponseEntity atualizar(@RequestBody @Valid DadosAtualizacaoCartao dados) {
@@ -101,7 +103,8 @@ public class CartaoController {
 
     @Operation(summary = "Inativar um cartão")
     @ApiResponse(responseCode = "204", description = "Dados do cartao excluídos")
-    @ApiResponse(responseCode = "500", description = "Dados inválidos ou ausentes")
+    @ApiResponse(responseCode = "400", description = "Dados enviados estão inválidos.")
+    @ApiResponse(responseCode = "500", description = "Dados enviados em desacordo com as regras de negócio.")
     @DeleteMapping("/{id}")
     @Transactional
     public ResponseEntity excluir(@PathVariable Long id) {

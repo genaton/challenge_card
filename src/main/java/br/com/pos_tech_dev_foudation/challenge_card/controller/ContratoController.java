@@ -38,7 +38,8 @@ public class ContratoController {
     @PostMapping
     @Transactional
     @ApiResponse(responseCode = "201", description = "Contrato cadastrado com sucesso")
-    @ApiResponse(responseCode = "500", description = "Dados inválidos ou ausentes")
+    @ApiResponse(responseCode = "400", description = "Dados enviados estão inválidos.")
+    @ApiResponse(responseCode = "500", description = "Dados enviados em desacordo com as regras de negócio.")
     public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroContrato dados, UriComponentsBuilder uriBuilder) {
         var dadosContrato = contratoService.contratarCartaoCliente(dados);
 
@@ -97,7 +98,8 @@ public class ContratoController {
 
     @Operation(summary = "Cancelar contrato")
     @ApiResponse(responseCode = "204", description = "Contrato cancelado")
-    @ApiResponse(responseCode = "500", description = "Dados inválidos ou ausentes")
+    @ApiResponse(responseCode = "400", description = "Dados enviados estão inválidos.")
+    @ApiResponse(responseCode = "500", description = "Dados enviados em desacordo com as regras de negócio.")
     @DeleteMapping("/{id}")
     @Transactional
     public ResponseEntity excluir(@PathVariable Long id) {
