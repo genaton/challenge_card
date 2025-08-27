@@ -3,27 +3,22 @@ Este projeto foi desenvolvido como parte do **Tech Challenge - Fase 2** da Pós-
 
 ---
 
-## 🚀 Funcionalidades
+## 📦 Instruções de instalação e execução da aplicação 
 
-### 👤 Gestão de Clientes
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/genaton/challenge_card
+   cd seu-repositorio
 
-- Cadastro de cliente com nome, CPF, e-mail e data de nascimento
-- Atualização e exclusão de dados
-- Validações com Bean Validation (`@NotBlank`, `@Email`, `@Past`, etc.)
-- Documentação clara via Swagger/OpenAPI
+2. Instalar um servidor MySQL
 
-### 💳 Gestão de Cartões
+3. As configurações de conexão com o banco de dados, estão no arquivo application.properties deste projeto: challenge_card > src > main > resources
 
-- Cadastro de produto de cartão com tipo (crédito/débito), bandeira e anuidade
-- Atualização e exclusão
-- Paginação e filtro por cartões ativos
+4. No MySQL, executar o comando de criação da base de dados: Create database challenge_api
 
-### 📌 Contratações
+5. Abra o projeto em uma IDE e execute:
 
-- Associação entre clientes e cartões
-- Registro da data de contratação
-- Status: ativo ou cancelado
-- Visualização de contratos por cliente
+./mvnw spring-boot:run
 
 ---
 
@@ -39,74 +34,10 @@ Este projeto foi desenvolvido como parte do **Tech Challenge - Fase 2** da Pós-
 
 ---
 
-## 📚 Arquitetura
-
-O projeto segue a estrutura tradicional de camadas:
-
-
-src/ ├── controller         --> Endpoints REST ├── service            --> Regras de negócio ├── repository         --> Interfaces JPA ├── model              --> Entidades JPA ├── dto                --> Records para entrada e saída └── config             --> Configurações (Swagger, CORS, etc.)
-
-Também foram utilizados Design Patterns como:
-
-- **Repository Pattern**
-- **DTO Mapping**
-- **Service Layer**
-- **Validation Strategy**
-
----
-
-🧠 Regras de negócio incluídas
-- Não é possível excluir um cliente com contrato ativo, deve primeiramente encerrar o contrato, para excluir um cliente.
-- Não é possível contratar um cartão para um cliente inativo.
-- Não é possível cantratar um cartão inativo.
-- Não é possível alterar os dados de um contrato cancelado.
-- Não é possível alterar o contrato para um cartão inativo.
-- Não é possível contratar o mesmo cartão para um cliente.
-
-
-
-## 📦 Como executar
-
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/genaton/challenge_card
-   cd seu-repositorio
-2. Configure o banco de dados no application.properties, arquivo localizado em src > main > resources
-3. Execute com:
-
-./mvnw spring-boot:run
+## Link para a documentação no Swagger
 
 - Acesse a documentação da API:
 👉 http://localhost:8080/swagger-ui/index.html
-
-📂 Estrutura do Banco de Dados
-O modelo ER contém:
-- Tabela clientes
-- Tabela cartoes
-- Tabela contratacoes
-- Relacionamento 1:N entre clientes e contratacoes
-- Relacionamento 1:N entre cartoes e contratacoes
-
-O modelo pode ser acessado em (vide readme.md do repositório):
-https://github.com/genaton/pos_thec_fiap_challenge_db_model
-
-📽️ Apresentação em vídeo
-A demonstração do funcionamento está disponível aqui:
-🎥 Link para vídeo no YouTube ou Drive
-
-
-🤝 Contribuidores
-
-- Carla Aparecida Dutra
-- Elton Uramoto
-- Genaton Alex
-- Moises Salgado
-- Renan Paschoalotti
-
-📄 Licença
-??
-
----
 
 
 
