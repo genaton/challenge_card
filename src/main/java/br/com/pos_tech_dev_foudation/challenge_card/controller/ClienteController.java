@@ -47,9 +47,8 @@ public class ClienteController {
     @Transactional
     @Operation(summary = "Cadastrar um cliente")
     @ApiResponse(responseCode = "201", description = "Cliente cadastrado")
-    @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
+    @ApiResponse(responseCode = "500", description = "Dados inválidos ou ausentes")
     public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroCliente dados, UriComponentsBuilder uriBuilder) {
-
         var dadosClienteCadastrado = clienteService.cadastrarCliente(dados);
 
         // Retornar URI com DTO já existente
@@ -91,7 +90,7 @@ public class ClienteController {
     @Transactional
     @Operation(summary = "Atualizar dados de um cliente")
     @ApiResponse(responseCode = "201", description = "Cliente atualizado")
-    @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
+    @ApiResponse(responseCode = "500", description = "Dados inválidos ou ausentes")
     public ResponseEntity atualizar(@RequestBody @Valid DadosAtualizacaoCliente dados) {
         var cliente = clienteRepository.getReferenceById(dados.id());
         cliente.atualizarInformacoes(dados);
@@ -112,7 +111,7 @@ public class ClienteController {
     @Transactional
     @Operation(summary = "Excluir um clientes - Inativar")
     @ApiResponse(responseCode = "202", description = "Cliente excluído")
-    @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
+    @ApiResponse(responseCode = "500", description = "Dados inválidos ou ausentes")
     public ResponseEntity excluir(@PathVariable Long id) {
         clienteService.excluirCliente(id);
         return ResponseEntity.noContent().build();

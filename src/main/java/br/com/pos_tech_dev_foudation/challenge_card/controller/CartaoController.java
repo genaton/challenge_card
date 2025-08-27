@@ -1,5 +1,6 @@
 package br.com.pos_tech_dev_foudation.challenge_card.controller;
 
+import br.com.pos_tech_dev_foudation.challenge_card.services.CartaoService;
 import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -32,18 +33,20 @@ import jakarta.validation.Valid;
 public class CartaoController {
     @Autowired
     private CartaoRepository repository;
+    @Autowired
+    private CartaoService cartaoService;
 
     @PostMapping
     @Transactional
     @Operation(summary = "Cadastrar um cartão")
     @ApiResponse(responseCode = "201", description = "Cartao cadastrado")
-    @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
+    @ApiResponse(responseCode = "500", description = "Dados inválidos ou ausentes")
     public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroCartao dados, UriComponentsBuilder uriBilder) {
-        var cartao = new Cartao(dados);
-        repository.save(cartao);
+        var dadosCartaoCadastrado = cartaoService.cadastrarCartao(dados);
 
-        var uri = uriBilder.path("/cartao/{id}").buildAndExpand(cartao.getId()).toUri();
-        return ResponseEntity.created(uri).body((new DadosDetalhamentoCartao(cartao)));
+        // Retornar URI com DTO já existente
+        var uri = uriBilder.path("/cartao/{id}").buildAndExpand(dadosCartaoCadastrado.id()).toUri();
+        return ResponseEntity.created(uri).body(dadosCartaoCadastrado);
     }
 
     @Operation(summary = "Consultar cartões cadastrados")
@@ -78,7 +81,7 @@ public class CartaoController {
 
     @Operation(summary = "Atualizar dados de um cartão")
     @ApiResponse(responseCode = "201", description = "Dados do cartao atualizado")
-    @ApiResponse(responseCode = "200", description = "Dados inválidos ou ausentes")
+    @ApiResponse(responseCode = "500", description = "Dados inválidos ou ausentes")
     @PutMapping
     @Transactional
     public ResponseEntity atualizar(@RequestBody @Valid DadosAtualizacaoCartao dados) {
@@ -98,7 +101,7 @@ public class CartaoController {
 
     @Operation(summary = "Inativar um cartão")
     @ApiResponse(responseCode = "204", description = "Dados do cartao excluídos")
-    @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
+    @ApiResponse(responseCode = "500", description = "Dados inválidos ou ausentes")
     @DeleteMapping("/{id}")
     @Transactional
     public ResponseEntity excluir(@PathVariable Long id) {

@@ -78,7 +78,7 @@ public class ContratoController {
 
     @Operation(summary = "Atualizar dados do contrato")
     @ApiResponse(responseCode = "201", description = "Dados do contrato atualizado")
-    @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
+    @ApiResponse(responseCode = "500", description = "Dados inválidos ou ausentes")
     @PutMapping
     @Transactional
     public ResponseEntity atualizar(@RequestBody @Valid DadosAtualizacaoContrato dados) {
@@ -97,7 +97,7 @@ public class ContratoController {
 
     @Operation(summary = "Cancelar contrato")
     @ApiResponse(responseCode = "204", description = "Contrato cancelado")
-    @ApiResponse(responseCode = "400", description = "Dados inválidos ou ausentes")
+    @ApiResponse(responseCode = "500", description = "Dados inválidos ou ausentes")
     @DeleteMapping("/{id}")
     @Transactional
     public ResponseEntity excluir(@PathVariable Long id) {
