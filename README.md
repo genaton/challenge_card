@@ -10,7 +10,7 @@ Este projeto foi desenvolvido como parte do **Tech Challenge - Fase 2** da Pós-
    git clone https://github.com/genaton/challenge_card
    cd seu-repositorio
 
-2. Instalar um servidor MySQL
+2. Instalar um servidor MySQL Server versão mínima 5.5
 
 3. As configurações de conexão com o banco de dados, estão no arquivo application.properties deste projeto: challenge_card > src > main > resources
 
